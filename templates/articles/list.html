@@ -19,13 +19,12 @@
 {% for a in articles %}
 <tr>
 
-
     <td>
         <strong>{{ a.title }}</strong><br>
-        <small>{{a.slug}}</small>
+        <small>{{ a.slug }}</small>
     </td>
 
-    <td class="{% if a.is_active %}status-active{% else %}status-inactive{% endif %}">
+    <td id="status-{{ a.id }}" class="{% if a.is_active %}status-active{% else %}status-inactive{% endif %}">
         {{ a.is_active|yesno:"Active,Inactive" }}
     </td>
 
@@ -37,16 +36,32 @@
         {% endif %}
     </td>
 
-    <td>
-        <a href="{% url 'article_edit' a.id %}" class="edit">Edit</a> |
-        <button class="delete" 
-                onclick="openDeleteModal('{{ a.title }}', '{% url 'article_delete' a.id %}')"
-                style="background:none;border:none;color:#ef4444;cursor:pointer;padding:0;">
-            Delete
-        </button>
+    <td class="actions">
+        <span class="status-toggle"
+              data-url="{% url 'toggle_status' 'article' a.id %}"
+              data-target="status-{{ a.id }}"
+              onclick="event.preventDefault(); toggleStatus(this)"
+              title="Toggle status">
+            <i class="fa-solid {% if a.is_active %}fa-toggle-on{% else %}fa-toggle-off{% endif %}"></i>
+        </span>
+
+        <a href="{% url 'article_edit' a.id %}" class="icon edit" title="Edit">
+            <i class="fa-solid fa-pen-to-square"></i> |
+        </a>
+
+        <span class="icon delete"
+              title="Delete"
+              onclick="openDeleteModal('{{ a.title }}', '{% url 'article_delete' a.id %}')">
+            <i class="fa-solid fa-trash"></i>
+        </span>
     </td>
 </tr>
 {% endfor %}
+
 </table>
+
+<form style="display:none;">
+    {% csrf_token %}
+</form>
 
 {% endblock %}

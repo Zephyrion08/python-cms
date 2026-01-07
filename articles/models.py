@@ -6,7 +6,7 @@ from django.utils.text import slugify
 class Article(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255, blank=True)
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=False)
 
     image = models.ImageField(
         upload_to='articles/',

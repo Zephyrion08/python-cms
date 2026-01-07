@@ -16,18 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from accounts import views
-from .views import dashboard
+from accounts.views import login_view, logout_view
+from .views import dashboard, toggle_status
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("login/", views.login_view, name="login"),
-    path("logout/", views.logout_view, name="logout"),
+    path("login/", login_view, name="login"),
+    path("logout/", logout_view, name="logout"),
     path('', dashboard, name='dashboard'),
     path('users/', include('users.urls')),
     path('articles/', include('articles.urls')),
+    path('toggle-status/<str:model_name>/<int:pk>/', toggle_status, name='toggle_status'),
+
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

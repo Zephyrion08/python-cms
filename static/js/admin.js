@@ -1,4 +1,20 @@
-console.log("File loaded")
+console.log("load")
+
+function getCSRFToken() {
+    let cookieValue = null;
+    const name = 'csrftoken';
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 /* sidebar toggler */
 
 const toggleBtn = document.getElementById("toggleSidebar");
@@ -64,74 +80,156 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /* Preview image function */
-
 document.addEventListener('DOMContentLoaded', function () {
 
     const imageInput = document.querySelector('input[type="file"]');
     const imagePreview = document.getElementById('imagePreview');
     const removeInput = document.getElementById('remove_image');
+    const imageLabel = imageInput ? imageInput.previousElementSibling : null;
 
-    if (!imagePreview) return;
+    if (!imageInput || !imagePreview) return;
 
+    // Show the file input
     function showImageInput() {
-        if (imageInput) {
-            imageInput.style.display = 'block';
-            if (imageInput.previousElementSibling?.tagName === 'LABEL') {
-                imageInput.previousElementSibling.style.display = 'block';
-            }
-        }
+        imageInput.style.display = 'block';
+        if (imageLabel && imageLabel.tagName === 'LABEL') imageLabel.style.display = 'block';
     }
 
+    // Hide the file input
+    function hideImageInput() {
+        imageInput.style.display = 'none';
+        if (imageLabel && imageLabel.tagName === 'LABEL') imageLabel.style.display = 'none';
+    }
+
+    // Clear preview and mark remove
     function clearPreview() {
-        if (imageInput) imageInput.value = '';
+        removeInput.value = '1';  // mark for removal
         imagePreview.innerHTML = '<p class="no-image">No image selected</p>';
-        if (removeInput) removeInput.value = '1';
         showImageInput();
+        imageInput.value = ''; // clear file input
     }
 
-    // ✅ EVENT DELEGATION — works for edit + add
-    imagePreview.addEventListener('click', function (e) {
-        if (e.target.classList.contains('remove-image')) {
+    // Remove image when clicking ×
+    imagePreview.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-image')) {
             e.preventDefault();
             clearPreview();
         }
     });
 
-    // Handle new image selection
-    if (imageInput) {
-        imageInput.addEventListener('change', function () {
-            const file = this.files[0];
+    // Upload new image
+    imageInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (!file) return;
 
-            if (file) {
-                if (removeInput) removeInput.value = '0';
+        removeInput.value = '0'; // user uploaded new image
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imagePreview.innerHTML = `
+                <div class="preview-wrapper" style="position:relative; display:inline-block;">
+                    <img src="${e.target.result}" 
+                         style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
+                    <span class="remove-image" style="
+                          position:absolute;
+                          top:-5px;
+                          right:-5px;
+                          background:#ef4444;
+                          color:white;
+                          border-radius:50%;
+                          width:20px;
+                          height:20px;
+                          text-align:center;
+                          line-height:20px;
+                          cursor:pointer;
+                          font-weight:bold;">×</span>
+                </div>
+            `;
+            hideImageInput();
+        };
+        reader.readAsDataURL(file);
+    });
 
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    imagePreview.innerHTML = `
-                        <div class="preview-wrapper" style="position:relative; display:inline-block;">
-                            <img src="${e.target.result}"
-                                 style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
-                            <span class="remove-image"
-                                  style="
-                                    position:absolute;
-                                    top:-5px;
-                                    right:-5px;
-                                    background:#ef4444;
-                                    color:white;
-                                    border-radius:50%;
-                                    width:20px;
-                                    height:20px;
-                                    text-align:center;
-                                    line-height:20px;
-                                    cursor:pointer;
-                                    font-weight:bold;
-                                    z-index:10;">×</span>
-                        </div>
-                    `;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+    // Initial state: hide input if image exists
+    if (imagePreview.querySelector('img')) {
+        hideImageInput();
+    } else {
+        showImageInput();
     }
 
 });
+
+
+
+
+
+
+/* generete slug function */
+
+  function slugify(text) {
+    return text
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')        
+      .replace(/[^\w\-]+/g, '')      
+      .replace(/\-\-+/g, '-');        
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const titleInput = document.getElementById("id_title");
+    const slugInput = document.getElementById("id_slug");
+
+    if (!titleInput || !slugInput) return;
+
+  
+    let slugTouched = false;
+
+    slugInput.addEventListener("input", function () {
+      slugTouched = true;
+    });
+
+    titleInput.addEventListener("input", function () {
+      if (!slugTouched) {
+        slugInput.value = slugify(titleInput.value);
+      }
+    });
+  });
+
+  /* toggle status function */
+
+
+function toggleStatus(el) {
+    const url = el.dataset.url;
+    const targetId = el.dataset.target;
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": getCSRFToken(),
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        const icon = el.querySelector("i");
+
+        if (data.status) {
+            icon.classList.remove("fa-toggle-off");
+            icon.classList.add("fa-toggle-on");
+            icon.style.color = "#22c55e";
+        } else {
+            icon.classList.remove("fa-toggle-on");
+            icon.classList.add("fa-toggle-off");
+            icon.style.color = "#9ca3af";
+        }
+
+        // ✅ Update status text in table
+        if (targetId) {
+            const statusCell = document.getElementById(targetId);
+            if (statusCell) {
+                statusCell.innerText = data.status ? "Active" : "Inactive";
+                statusCell.className = data.status ? "status-active" : "status-inactive";
+            }
+        }
+    })
+    .catch(err => console.error("Toggle failed:", err));
+}

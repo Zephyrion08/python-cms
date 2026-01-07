@@ -3,7 +3,11 @@ from .models import Article
 from django.utils.text import slugify
 
 class ArticleForm(forms.ModelForm):
-    slug = forms.CharField(required=False, disabled=True, help_text="Auto-generated from title")
+    slug = forms.CharField(
+    required=False,
+    help_text="Auto-generated from title",
+    widget=forms.TextInput(attrs={"readonly": "readonly"})
+)
 
     class Meta:
         model = Article
@@ -12,13 +16,13 @@ class ArticleForm(forms.ModelForm):
             'show_on_homepage', 'is_active'
         ] 
         widgets = {
-            'image': forms.FileInput(),  # 🔴 removes Clear checkbox
+            'image': forms.FileInput(),
         }
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        if not self.instance.pk:  # hide slug on create
-            self.fields.pop('slug')
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     if not self.instance.pk:  # hide slug on create
+    #         self.fields.pop('slug')
 
     def clean(self):
         cleaned_data = super().clean()
@@ -30,7 +34,9 @@ class ArticleForm(forms.ModelForm):
             qs = qs.exclude(pk=self.instance.pk)
 
         if qs.exists():
-            raise forms.ValidationError("An article with this title already exists. Please change the title.")
-        
+            raise forms.ValidationError(
+                "An article with this title already exists. Please change the title."
+            )
+
         cleaned_data['slug'] = slug
         return cleaned_data

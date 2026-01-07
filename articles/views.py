@@ -4,8 +4,10 @@ from .forms import ArticleForm
 from .models import Article
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.http import JsonResponse
+from django.views.decorators.csrf import ensure_csrf_cookie
 
-
+@ensure_csrf_cookie
 @login_required
 def article_list(request):
     articles = Article.objects.all().order_by('-created_at')
@@ -45,11 +47,16 @@ def article_edit(request, pk):
         form = ArticleForm(request.POST, request.FILES, instance=article)
         if form.is_valid():
             article = form.save(commit=False)
+            
+            # Remove old image if flagged
+            remove_image = request.POST.get('remove_image') == '1'
+            new_image = form.cleaned_data.get('image')
 
-            # Handle image removal
-            if request.POST.get('remove_image') == '1' and article.image:
+            if remove_image and article.image:
                 article.image.delete(save=False)
-                article.image = None
+                # Only set None if no new image
+                if not new_image:
+                    article.image = None
 
             article.save()
             messages.success(request, "Article saved successfully!")
@@ -63,6 +70,7 @@ def article_edit(request, pk):
         'form': form,
         'is_edit': True,
     })
+
 
 
 
@@ -86,3 +94,13 @@ def article_delete(request, pk):
         messages.error(request, "Article delete successfully!")
 
     return redirect('article_list')
+
+
+
+
+def article_toggle_status(request, pk):
+    if request.method == "POST":
+        article = get_object_or_404(Article, pk=pk)
+        article.is_active = not article.is_active
+        article.save()
+        return JsonResponse({"status": article.is_active})

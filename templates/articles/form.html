@@ -41,43 +41,41 @@
     {% endif %}
 
 
-<div class="form-group">
+    <div class="form-group">
+      {{ form.image.label_tag }}
+      {{ form.image }}
 
-  {% if not is_edit or not form.instance.image %}
-    {{ form.image.label_tag }}
-    {{ form.image }}
-  {% endif %}
-
-  <!-- Preview container -->
-  <div id="imagePreview" style="margin-top:10px;">
-    {% if is_edit and form.instance.image %}
-      <div class="preview-wrapper" style="position:relative; display:inline-block;">
-        <img src="{{ form.instance.image.url }}" 
-             alt="Preview" 
-             style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
-        <span class="remove-image" style="
-              position:absolute;
-              top:-5px;
-              right:-5px;
-              background:#ef4444;
-              color:white;
-              border-radius:50%;
-              width:20px;
-              height:20px;
-              text-align:center;
-              line-height:20px;
-              cursor:pointer;
-              font-weight:bold;">×</span>
+      <!-- Preview container -->
+      <div id="imagePreview" style="margin-top:10px;">
+        {% if is_edit and form.instance.image %}
+          <div class="preview-wrapper" style="position:relative; display:inline-block;">
+            <img src="{{ form.instance.image.url }}" 
+                alt="Preview" 
+                style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
+            <span class="remove-image" style="
+                  position:absolute;
+                  top:-5px;
+                  right:-5px;
+                  background:#ef4444;
+                  color:white;
+                  border-radius:50%;
+                  width:20px;
+                  height:20px;
+                  text-align:center;
+                  line-height:20px;
+                  cursor:pointer;
+                  font-weight:bold;">×</span>
+          </div>
+        {% else %}
+          <p class="no-image">No image selected</p>
+        {% endif %}
       </div>
-    {% else %}
-      <p class="no-image">No image selected</p>
-    {% endif %}
-  </div>
 
-  {% if form.image.errors %}
-      <div class="error">{{ form.image.errors }}</div>
-  {% endif %}
-</div>
+      {% if form.image.errors %}
+          <div class="error">{{ form.image.errors }}</div>
+      {% endif %}
+    </div>
+
 
 
     <div class="form-group">
