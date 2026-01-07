@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Articles</h2>
+
+<a href="{% url 'article_create' %}" class="btn">+ Add Article</a>
+
+
+
+<table class="log-table">
+<tr>
+
+    <th>Title</th>
+    <th>Status</th>
+    <th>Homepage</th>
+    <th>Actions</th>
+</tr>
+
+{% for a in articles %}
+<tr>
+
+
+    <td>
+        <strong>{{ a.title }}</strong><br>
+        <small>{{a.slug}}</small>
+    </td>
+
+    <td class="{% if a.is_active %}status-active{% else %}status-inactive{% endif %}">
+        {{ a.is_active|yesno:"Active,Inactive" }}
+    </td>
+
+    <td>
+        {% if a.show_on_homepage %}
+            <span class="badge badge-green">Yes</span>
+        {% else %}
+            <span class="badge badge-gray">No</span>
+        {% endif %}
+    </td>
+
+    <td>
+        <a href="{% url 'article_edit' a.id %}" class="edit">Edit</a> |
+        <button class="delete" 
+                onclick="openDeleteModal('{{ a.title }}', '{% url 'article_delete' a.id %}')"
+                style="background:none;border:none;color:#ef4444;cursor:pointer;padding:0;">
+            Delete
+        </button>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

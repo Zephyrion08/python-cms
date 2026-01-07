@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>DASHBOARD</h2>
+
+<!-- MODULE TILES -->
+<div class="tiles">
+
+    <a href="{% url 'user_list' %}">
+    <div class="tile blue">
+        <i class="fa-solid fa-users"></i>
+        <span>Users</span>
+    </div>
+    </a>
+
+    <div class="tile orange">
+        <i class="fa-solid fa-list"></i>
+        <span>Menu Mgmt</span>
+    </div>
+
+    <div class="tile red">
+        <i class="fa-solid fa-a"></i>
+        <span>Articles Mgmt</span>
+    </div>
+
+    <div class="tile green">
+        <i class="fa-solid fa-film"></i>
+        <span>Slideshow Mgmt</span>
+    </div>
+
+    <div class="tile lime">
+        <i class="fa-solid fa-bullhorn"></i>
+        <span>Package Mgmt</span>
+    </div>
+
+    <div class="tile cyan">
+        <i class="fa-solid fa-vr-cardboard"></i>
+        <span>Virtual Tour</span>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

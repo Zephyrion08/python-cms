@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Users</h2>
+
+<a href="{% url 'user_list' %}" class="btn">← Back to Users</a>
+
+<div class="form-container">
+    <h2 class="form-title">{% if edit %}Edit User{% else %}Create User{% endif %}</h2>
+
+    <form method="post" class="form">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <small class="help-text">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+            <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <div class="form-actions">
+            <button class="btn">{% if edit %}Update{% else %}Create{% endif %}</button>
+            <a href="{% url 'user_list' %}" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

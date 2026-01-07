@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Articles</h2>
+
+<a href="{% url 'article_list' %}" class="btn">← Back to Article</a>
+
+
+
+<div class="form-container">
+  <h2>
+    {% if is_edit %}Edit Article{% else %}Create Article{% endif %}
+  </h2>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+      {{ form.title.label_tag }}
+      {{ form.title }}
+      <small class="help-text">{{ form.title.help_text }}</small>
+      {% if form.title.errors %}
+          <div class="error">{{ form.title.errors }}</div>
+      {% endif %}
+    </div>
+
+    <div class="form-group">
+      {{ form.subtitle.label_tag }}
+      {{ form.subtitle }}
+      <small class="help-text">{{ form.subtitle.help_text }}</small>
+      {% if form.subtitle.errors %}
+          <div class="error">{{ form.subtitle.errors }}</div>
+      {% endif %}
+    </div>
+
+    {% if form.slug %}
+    <div class="form-group">
+      {{ form.slug.label_tag }}
+      {{ form.slug }}
+      <small class="help-text">{{ form.slug.help_text }}</small>
+    </div>
+    {% endif %}
+
+
+<div class="form-group">
+
+  {% if not is_edit or not form.instance.image %}
+    {{ form.image.label_tag }}
+    {{ form.image }}
+  {% endif %}
+
+  <!-- Preview container -->
+  <div id="imagePreview" style="margin-top:10px;">
+    {% if is_edit and form.instance.image %}
+      <div class="preview-wrapper" style="position:relative; display:inline-block;">
+        <img src="{{ form.instance.image.url }}" 
+             alt="Preview" 
+             style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
+        <span class="remove-image" style="
+              position:absolute;
+              top:-5px;
+              right:-5px;
+              background:#ef4444;
+              color:white;
+              border-radius:50%;
+              width:20px;
+              height:20px;
+              text-align:center;
+              line-height:20px;
+              cursor:pointer;
+              font-weight:bold;">×</span>
+      </div>
+    {% else %}
+      <p class="no-image">No image selected</p>
+    {% endif %}
+  </div>
+
+  {% if form.image.errors %}
+      <div class="error">{{ form.image.errors }}</div>
+  {% endif %}
+</div>
+
+
+    <div class="form-group">
+      {{ form.content.label_tag }}
+      {{ form.content }}
+    </div>
+
+    <div class="form-group">
+      {{ form.show_on_homepage.label_tag }}
+      {{ form.show_on_homepage }}
+    </div>
+
+    <div class="form-group">
+      {{ form.is_active.label_tag }}
+      {{ form.is_active }}
+    </div>
+
+     <input type="hidden" name="remove_image" id="remove_image" value="0">
+
+    <div class="form-actions">
+      <button type="submit" class="btn">
+        {% if is_edit %}Update{% else %}Create{% endif %}
+      </button>
+      <a href="{% url 'article_list' %}" class="btn-cancel">Cancel</a>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}
