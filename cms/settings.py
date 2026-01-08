@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cms',
     'accounts',
+    'ckeditor',
+    'ckeditor_uploader',
     'users',
     'articles',
 ]
@@ -103,6 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
@@ -126,6 +132,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 LOGIN_URL = '/login/'
@@ -137,4 +144,14 @@ LOGOUT_REDIRECT_URL = '/login/'
 MESSAGE_TAGS = {
     messages.ERROR: 'error',
     messages.SUCCESS: 'success',
+}
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 400,
+        'width': '100%',
+        'allowedContent': True,  # allow all HTML tags/attributes
+        'extraPlugins': 'uploadimage,image2',  # advanced image support
+    }
 }

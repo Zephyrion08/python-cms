@@ -30,18 +30,17 @@
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
       <nav>
-        <a href="{% url 'dashboard' %}" class="active">
-          <i class="fa-solid fa-gauge"></i>
-          <span>Dashboard</span>
+        <a href="{% url 'dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+            <i class="fa-solid fa-gauge"></i>
+            <span>Dashboard</span>
         </a>
-
-        <a href="{% url 'user_list' %}">
-          <i class="fa-solid fa-users"></i>
-          <span>Users</span>
+        <a href="{% url 'user_list' %}" class="{% if 'user' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fa-solid fa-user"></i>
+            <span>Users</span>
         </a>
-        <a href="{% url 'article_list' %}">
-          <i class="fa-solid fa-newspaper"></i>
-          <span>Articles</span>
+        <a href="{% url 'article_list' %}" class="{% if 'article' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fa-solid fa-newspaper"></i>
+            <span>Articles</span>
         </a>
       </nav>
     </aside>

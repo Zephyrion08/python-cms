@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
+import os
 
 @ensure_csrf_cookie
 @login_required
@@ -38,28 +39,31 @@ def article_create(request):
     return render(request, 'articles/form.html', {'form': form})
 
 
-
 @login_required
 def article_edit(request, pk):
     article = get_object_or_404(Article, pk=pk)
 
+    # 1. Security: Only author or superuser can edit
+    if article.author != request.user and not request.user.is_superuser:
+        messages.error(request, "You are not authorized to edit this article.")
+        return redirect('article_list')
+
     if request.method == 'POST':
+        # 2. Check the custom 'remove_image' flag from your JS
+        remove_image_flag = request.POST.get('remove_image') == '1'
+        
         form = ArticleForm(request.POST, request.FILES, instance=article)
+        
         if form.is_valid():
             article = form.save(commit=False)
             
-            # Remove old image if flagged
-            remove_image = request.POST.get('remove_image') == '1'
-            new_image = form.cleaned_data.get('image')
-
-            if remove_image and article.image:
-                article.image.delete(save=False)
-                # Only set None if no new image
-                if not new_image:
-                    article.image = None
-
+            # 3. If user clicked 'X' and didn't upload a new one, clear the field
+            # The signal in models.py will handle the actual file deletion
+            if remove_image_flag and not request.FILES.get('image'):
+                article.image = None
+                
             article.save()
-            messages.success(request, "Article saved successfully!")
+            messages.success(request, "Article updated successfully!")
             return redirect('article_list')
         else:
             messages.error(request, "Please fix the errors below.")
@@ -69,8 +73,8 @@ def article_edit(request, pk):
     return render(request, 'articles/form.html', {
         'form': form,
         'is_edit': True,
+        'article': article, 
     })
-
 
 
 

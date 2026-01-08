@@ -90,15 +90,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!imageInput || !imagePreview) return;
 
     // Show the file input
-    function showImageInput() {
-        imageInput.style.display = 'block';
-        if (imageLabel && imageLabel.tagName === 'LABEL') imageLabel.style.display = 'block';
+    function hideImageInput() {
+        imageInput.style.opacity = '0';
+        imageInput.style.height = '0';
+        imageInput.style.position = 'absolute';
+        if (imageLabel) imageLabel.style.display = 'none';
     }
 
-    // Hide the file input
-    function hideImageInput() {
-        imageInput.style.display = 'none';
-        if (imageLabel && imageLabel.tagName === 'LABEL') imageLabel.style.display = 'none';
+    function showImageInput() {
+        imageInput.style.opacity = '1';
+        imageInput.style.height = 'auto';
+        imageInput.style.position = 'static';
+        if (imageLabel) imageLabel.style.display = 'block';
     }
 
     // Clear preview and mark remove

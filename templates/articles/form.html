@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{{ form.media }}
 <h2>Articles</h2>
 
 <a href="{% url 'article_list' %}" class="btn">← Back to Article</a>
@@ -13,6 +14,7 @@
 
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
+ 
 
     <div class="form-group">
       {{ form.title.label_tag }}
@@ -40,40 +42,26 @@
     </div>
     {% endif %}
 
-
     <div class="form-group">
-      {{ form.image.label_tag }}
-      {{ form.image }}
+        {{ form.image.label_tag }}
+        
+        <div class="input-file-container">
+            {{ form.image }}
+        </div>
 
-      <!-- Preview container -->
-      <div id="imagePreview" style="margin-top:10px;">
-        {% if is_edit and form.instance.image %}
-          <div class="preview-wrapper" style="position:relative; display:inline-block;">
-            <img src="{{ form.instance.image.url }}" 
-                alt="Preview" 
-                style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
-            <span class="remove-image" style="
-                  position:absolute;
-                  top:-5px;
-                  right:-5px;
-                  background:#ef4444;
-                  color:white;
-                  border-radius:50%;
-                  width:20px;
-                  height:20px;
-                  text-align:center;
-                  line-height:20px;
-                  cursor:pointer;
-                  font-weight:bold;">×</span>
-          </div>
-        {% else %}
-          <p class="no-image">No image selected</p>
-        {% endif %}
-      </div>
-
-      {% if form.image.errors %}
-          <div class="error">{{ form.image.errors }}</div>
-      {% endif %}
+        <div id="imagePreview" class="mt-2">
+            {% if is_edit and form.instance.image %}
+                <div class="preview-wrapper" style="position:relative; display:inline-block;">
+                    <img src="{{ form.instance.image.url }}" 
+                        style="max-width:200px; max-height:150px; border-radius:4px; border:1px solid #ddd;">
+                    <span class="remove-image">×</span>
+                </div>
+            {% else %}
+                <p class="no-image text-muted">No image selected</p>
+            {% endif %}
+        </div>
+        
+        <input type="hidden" name="remove_image" id="remove_image" value="0">
     </div>
 
 
@@ -88,12 +76,13 @@
       {{ form.show_on_homepage }}
     </div>
 
-    <div class="form-group">
-      {{ form.is_active.label_tag }}
-      {{ form.is_active }}
+    <div class="form-group checkbox-group">
+        <label for="{{ form.is_active.id_for_label }}">
+            {{ form.is_active }} {{ form.is_active.label }}
+        </label>
     </div>
 
-     <input type="hidden" name="remove_image" id="remove_image" value="0">
+
 
     <div class="form-actions">
       <button type="submit" class="btn">

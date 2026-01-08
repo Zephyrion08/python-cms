@@ -1,13 +1,18 @@
 from django import forms
 from .models import Article
 from django.utils.text import slugify
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 class ArticleForm(forms.ModelForm):
+    # 1. Add the hidden field that your JS targets
+    remove_image = forms.CharField(widget=forms.HiddenInput(), required=False, initial='0')
+    content = forms.CharField(widget=CKEditorUploadingWidget(),required=False)
+
     slug = forms.CharField(
-    required=False,
-    help_text="Auto-generated from title",
-    widget=forms.TextInput(attrs={"readonly": "readonly"})
-)
+        required=False,
+        help_text="Auto-generated from title",
+        widget=forms.TextInput(attrs={"readonly": "readonly"})
+    )
 
     class Meta:
         model = Article
@@ -18,11 +23,6 @@ class ArticleForm(forms.ModelForm):
         widgets = {
             'image': forms.FileInput(),
         }
-
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     if not self.instance.pk:  # hide slug on create
-    #         self.fields.pop('slug')
 
     def clean(self):
         cleaned_data = super().clean()
@@ -40,3 +40,15 @@ class ArticleForm(forms.ModelForm):
 
         cleaned_data['slug'] = slug
         return cleaned_data
+
+    # 2. Add the Save logic to handle image removal
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        
+        # If the 'X' was clicked in JS, this value will be '1'
+        if self.cleaned_data.get('remove_image') == '1':
+            instance.image = None # This triggers your global pre_save signal!
+            
+        if commit:
+            instance.save()
+        return instance
