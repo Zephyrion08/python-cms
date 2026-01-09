@@ -5,60 +5,73 @@
 
 <a href="{% url 'article_create' %}" class="btn">+ Add Article</a>
 
+<form method="post" action="{% url 'bulk_action' 'article' %}">
+    {% csrf_token %}
+
+    <!-- Bulk Action Buttons -->
+    <div class="bulk-actions">
+        <!-- Single toggle button -->
+        <button type="submit" name="action" value="toggle" class="btn">
+            Status
+        </button>
+
+        <!-- Bulk delete button -->
+        <button type="button" class="btn" onclick="openDeleteModal('article', null, '/bulk/article/', true)">
+            Delete
+        </button>
+    </div>
+
+    <!-- Table -->
+    <table class="log-table">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="select-all"></th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Homepage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in articles %}
+            <tr>
+                <td><input type="checkbox" name="selected_ids" value="{{ a.id }}" class="row-checkbox"> </td>
+                <td>{{ a.title }}<br><small>{{ a.slug }}</small></td>
+                <td id="status-{{ a.id }}" class="{% if a.is_active %}status-active{% else %}status-inactive{% endif %}">
+                    {{ a.is_active|yesno:"Active,Inactive" }}
+                </td>
+                <td>
+                    {% if a.show_on_homepage %}
+                        <span class="badge badge-green">Yes</span>
+                    {% else %}
+                        <span class="badge badge-gray">No</span>
+                    {% endif %}
+                </td>
+                <td class="actions">
+                    <span class="status-toggle"
+                          data-url="{% url 'toggle_status' 'article' a.id %}"
+                          data-target="status-{{ a.id }}"
+                          onclick="event.preventDefault(); toggleStatus(this)">
+                        <i class="fa-solid {% if a.is_active %}fa-toggle-on{% else %}fa-toggle-off{% endif %}"></i>
+                    </span>
+                    <a href="{% url 'article_edit' a.id %}" class="icon edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <span class="icon delete" 
+                        onclick="openDeleteModal('article', '{{ a.title }}', '{% url 'delete_object' 'article' a.id %}', false)">
+                        <i class="fa-solid fa-trash"></i>
+                    </span>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td style="text-align:center;">No articles found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
 
 
-<table class="log-table">
-<tr>
 
-    <th>Title</th>
-    <th>Status</th>
-    <th>Homepage</th>
-    <th>Actions</th>
-</tr>
-
-{% for a in articles %}
-<tr>
-
-    <td>
-        <strong>{{ a.title }}</strong><br>
-        <small>{{ a.slug }}</small>
-    </td>
-
-    <td id="status-{{ a.id }}" class="{% if a.is_active %}status-active{% else %}status-inactive{% endif %}">
-        {{ a.is_active|yesno:"Active,Inactive" }}
-    </td>
-
-    <td>
-        {% if a.show_on_homepage %}
-            <span class="badge badge-green">Yes</span>
-        {% else %}
-            <span class="badge badge-gray">No</span>
-        {% endif %}
-    </td>
-
-    <td class="actions">
-        <span class="status-toggle"
-              data-url="{% url 'toggle_status' 'article' a.id %}"
-              data-target="status-{{ a.id }}"
-              onclick="event.preventDefault(); toggleStatus(this)"
-              title="Toggle status">
-            <i class="fa-solid {% if a.is_active %}fa-toggle-on{% else %}fa-toggle-off{% endif %}"></i>
-        </span>
-
-        <a href="{% url 'article_edit' a.id %}" class="icon edit" title="Edit">
-            <i class="fa-solid fa-pen-to-square"></i> |
-        </a>
-
-        <span class="icon delete"
-              title="Delete"
-              onclick="openDeleteModal('{{ a.title }}', '{% url 'delete_object' 'article' a.id %}')">
-            <i class="fa-solid fa-trash"></i>
-        </span>
-    </td>
-</tr>
-{% endfor %}
-
-</table>
 
 
 {% endblock %}

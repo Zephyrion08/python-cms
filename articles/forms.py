@@ -6,7 +6,7 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 class ArticleForm(forms.ModelForm):
     # 1. Add the hidden field that your JS targets
     remove_image = forms.CharField(widget=forms.HiddenInput(), required=False, initial='0')
-    content = forms.CharField(widget=CKEditorUploadingWidget(),required=False)
+    
 
     slug = forms.CharField(
         required=False,

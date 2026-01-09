@@ -29,33 +29,51 @@ const toggleBtn = document.getElementById("toggleSidebar");
 
 /* delete msg function */
 
-function openDeleteModal(itemName, url) {
+function openDeleteModal(modelName, itemNameOrCount, url, isBulk = false) {
     const modal = document.getElementById('deleteModal');
     const form = document.getElementById('deleteForm');
     const modalText = document.getElementById('modal-text');
 
-    modalText.innerText = `Are you sure you want to delete "${itemName}"?`;
-    form.action = url;
-    modal.style.display = 'flex'; 
-    setTimeout(() => {
-        modal.classList.add('show');
-    }, 10);
-}
-
-function closeDeleteModal() {
-    const modal = document.getElementById('deleteModal');
-    modal.classList.remove('show');
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
-}
-
-window.onclick = function(event) {
-    const modal = document.getElementById('deleteModal');
-    if (event.target === modal) {
-        closeDeleteModal();
+    // 1. Handle IDs for Bulk
+    form.querySelectorAll('input[name="ids"]').forEach(i => i.remove());
+    
+    if (isBulk) {
+        const selected = Array.from(document.querySelectorAll('.row-checkbox:checked'))
+                              .map(cb => cb.value);
+        if (!selected.length) return alert("Select at least one item!");
+        
+        modalText.innerText = `Are you sure you want to delete ${selected.length} ${modelName}(s)?`;
+        
+        const idsInput = document.createElement('input');
+        idsInput.type = 'hidden';
+        idsInput.name = 'ids';
+        idsInput.value = selected.join(',');
+        form.appendChild(idsInput);
+    } else {
+        // 2. Handle Single Delete
+        modalText.innerText = `Are you sure you want to delete "${itemNameOrCount}"?`;
     }
-};
+
+    // 3. Set Action and Show
+    form.action = url;
+    modal.style.display = 'flex';
+    setTimeout(() => modal.classList.add('show'), 10);
+}
+
+    function closeDeleteModal() {
+        const modal = document.getElementById('deleteModal');
+        modal.classList.remove('show');
+        setTimeout(() => modal.style.display = 'none', 300);
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('deleteModal');
+        if (event.target === modal) closeDeleteModal();
+    }
+
+
+
+
 
 /* Message function */
 document.addEventListener('DOMContentLoaded', function() {
@@ -233,6 +251,35 @@ function toggleStatus(el) {
                 statusCell.className = data.status ? "status-active" : "status-inactive";
             }
         }
+        if (data.message) {
+            const container = document.getElementById('messages-container');
+            if (container) {
+                // Create the div
+                const msgDiv = document.createElement("div");
+                
+                // Add classes: 'message' is your base, 'success' matches Django tags
+                msgDiv.className = `message ${data.status ? 'success' : 'info'}`;
+                msgDiv.innerText = data.message;
+
+                // Append to the container
+                container.appendChild(msgDiv);
+
+                // Apply the same fade-out logic you use for standard messages
+                setTimeout(() => {
+                    msgDiv.style.opacity = '0';
+                    setTimeout(() => {
+                        msgDiv.remove();
+                    }, 600);
+                }, 3000);
+            }
+        }
     })
     .catch(err => console.error("Toggle failed:", err));
 }
+
+/* bulk action function */
+
+document.getElementById('select-all').addEventListener('change', function () {
+    const checked = this.checked;
+    document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = checked);
+});

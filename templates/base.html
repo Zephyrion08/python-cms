@@ -50,15 +50,15 @@
 
     <!-- MAIN CONTENT -->
     <main class="main" id="main">
-        {% if messages %}
-        <div class="messages-container">
-            {% for message in messages %}
-                <div class="message {{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
+        <div class="messages-container" id="messages-container">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
-        {% endif %}
         {% if form and form.non_field_errors %}
         <div class="messages">
           {% for error in form.non_field_errors %}

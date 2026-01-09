@@ -6,14 +6,23 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
-import os
+from django.core.paginator import Paginator
+
+
 
 @ensure_csrf_cookie
 @login_required
 def article_list(request):
-    articles = Article.objects.all().order_by('-created_at')
-    return render(request, 'articles/list.html', {'articles': articles})
+    articles_qs = Article.objects.all().order_by('-created_at')
 
+    paginator = Paginator(articles_qs, 10)  
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'articles/list.html', {
+        'articles': page_obj,      
+        'page_obj': page_obj,
+    })
 
 @login_required
 def article_create(request):
@@ -79,32 +88,41 @@ def article_edit(request, pk):
 
 
 
-@login_required
-def article_delete(request, pk):
-    article = get_object_or_404(Article, pk=pk)
 
-    # Only author or superuser can delete
-    if article.author != request.user and not request.user.is_superuser:
-        return redirect('article_list')
 
-    if request.method == 'POST':
-        # Delete the image file if it exists
-        if article.image:
-            article.image.delete(save=False)  # <-- removes file from disk
-            
 
-        # Delete the article instance
-        article.delete()
-        messages.error(request, "Article delete successfully!")
+    if request.method == "POST":
+        # Get the list of selected article IDs
+        selected_ids = request.POST.getlist('selected_ids')
+        action = request.POST.get('action')
+
+        if not selected_ids:
+            messages.warning(request, "No articles selected.")
+            return redirect('article_list')
+
+        # Filter only articles the user is allowed to modify
+        articles = Article.objects.filter(id__in=selected_ids)
+
+        # Optional: only allow author or superuser
+        articles = articles.filter(author=request.user) | articles.filter(author__isnull=False, author__is_superuser=True)
+        
+        # Perform the chosen action
+        if action == "delete":
+            for article in articles:
+                if article.image:
+                    article.image.delete(save=False)  # delete image file
+                article.delete()
+            messages.success(request, "Selected articles deleted successfully!")
+
+        elif action == "activate":
+            articles.update(is_active=True)
+            messages.success(request, "Selected articles activated successfully!")
+
+        elif action == "deactivate":
+            articles.update(is_active=False)
+            messages.success(request, "Selected articles deactivated successfully!")
+
+        else:
+            messages.warning(request, "Invalid action.")
 
     return redirect('article_list')
-
-
-
-
-def article_toggle_status(request, pk):
-    if request.method == "POST":
-        article = get_object_or_404(Article, pk=pk)
-        article.is_active = not article.is_active
-        article.save()
-        return JsonResponse({"status": article.is_active})

@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from accounts.views import login_view, logout_view
-from .views import dashboard, toggle_status,delete_object
+from .views import dashboard, toggle_status,delete_object,bulk_action
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -38,6 +38,7 @@ urlpatterns = [
 
     path('toggle-status/<str:model_name>/<int:pk>/', toggle_status, name='toggle_status'),
     path("delete_object/<str:model_name>/<int:pk>/", delete_object, name="delete_object"),
+    path('bulk/<str:model_name>/', bulk_action, name='bulk_action'),
 
 
 

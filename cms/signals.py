@@ -1,22 +1,108 @@
+# import os
+# from django.db.models.signals import post_delete, pre_save
+# from django.dispatch import receiver
+# from django.db.models import FileField
+
+# # 1. Cleanup when object is DELETED
+# @receiver(post_delete)
+# def global_delete_files_on_delete(sender, instance, **kwargs):
+#     """Loop through all fields; if it's a file, delete it from disk."""
+#     for field in instance._meta.fields:
+#         if isinstance(field, FileField):
+#             file = getattr(instance, field.name)
+#             if file and os.path.isfile(file.path):
+#                 file.delete(save=False)
+
+# # 2. Cleanup when file is UPDATED
+# @receiver(pre_save)
+# def global_delete_old_files_on_change(sender, instance, **kwargs):
+#     """Delete the old file when a new one is uploaded."""
+#     if not instance.pk:
+#         return False
+
+#     try:
+#         old_instance = sender.objects.get(pk=instance.pk)
+#     except sender.DoesNotExist:
+#         return False
+
+#     for field in instance._meta.fields:
+#         if isinstance(field, FileField):
+#             old_file = getattr(old_instance, field.name)
+#             new_file = getattr(instance, field.name)
+            
+#             # If the file path has changed, delete the old file
+#             if old_file and old_file != new_file:
+#                 if os.path.isfile(old_file.path):
+#                     old_file.delete(save=False)
 import os
+import re
 from django.db.models.signals import post_delete, pre_save
 from django.dispatch import receiver
-from django.db.models import FileField
+from django.db.models import FileField, TextField
+from django.conf import settings
+from django.apps import apps
 
-# 1. Cleanup when object is DELETED
+# ---------------------------------------------------------
+# 1. Cleanup when object is DELETED (With Cross-Model Check)
+# ---------------------------------------------------------
 @receiver(post_delete)
 def global_delete_files_on_delete(sender, instance, **kwargs):
-    """Loop through all fields; if it's a file, delete it from disk."""
+    """
+    Deletes files only if they are not used by ANY model in the project.
+    """
     for field in instance._meta.fields:
+        # A. Standard FileFields
         if isinstance(field, FileField):
             file = getattr(instance, field.name)
-            if file and os.path.isfile(file.path):
-                file.delete(save=False)
+            if file and file.name and os.path.isfile(file.path):
+                try:
+                    os.remove(file.path)
+                except Exception as e:
+                    print(f"Error: {e}")
 
-# 2. Cleanup when file is UPDATED
+        # B. CKEditor Images with Cross-Model Check
+        elif isinstance(field, TextField):
+            content = getattr(instance, field.name, "")
+            if not content:
+                continue
+
+            pattern = r'src="' + re.escape(settings.MEDIA_URL) + r'([^"]+)"'
+            image_paths = re.findall(pattern, content)
+
+            for path in image_paths:
+                full_path = os.path.join(settings.MEDIA_ROOT, path)
+                img_url_to_check = settings.MEDIA_URL + path
+                
+                if is_image_in_use_anywhere(img_url_to_check):
+                    print(f"CLEANUP: Skipped {path} (Still used in another record)")
+                else:
+                    if os.path.exists(full_path):
+                        try:
+                            os.remove(full_path)
+                            print(f"CLEANUP: Deleted {path} (No usage anywhere)")
+                        except Exception as e:
+                            print(f"ERROR: {e}")
+
+def is_image_in_use_anywhere(img_url):
+    """
+    Searches all models in the project for a specific image URL.
+    """
+    # Loop through every model registered in your Django project
+    for model in apps.get_models():
+        # Look for models that have TextFields
+        text_fields = [f.name for f in model._meta.fields if isinstance(f, TextField)]
+        
+        for field_name in text_fields:
+            # Check if any record in this model contains the image URL
+            if model.objects.filter(**{f"{field_name}__icontains": img_url}).exists():
+                return True
+    return False
+
+# ---------------------------------------------------------
+# 2. Cleanup when file is UPDATED (FileFields)
+# ---------------------------------------------------------
 @receiver(pre_save)
 def global_delete_old_files_on_change(sender, instance, **kwargs):
-    """Delete the old file when a new one is uploaded."""
     if not instance.pk:
         return False
 
@@ -29,8 +115,10 @@ def global_delete_old_files_on_change(sender, instance, **kwargs):
         if isinstance(field, FileField):
             old_file = getattr(old_instance, field.name)
             new_file = getattr(instance, field.name)
-            
-            # If the file path has changed, delete the old file
+
             if old_file and old_file != new_file:
-                if os.path.isfile(old_file.path):
-                    old_file.delete(save=False)
+                if old_file.name and os.path.isfile(old_file.path):
+                    try:
+                        os.remove(old_file.path)
+                    except Exception as e:
+                        print(f"Update Error: {e}")
