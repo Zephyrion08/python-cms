@@ -1,26 +1,43 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
 from .forms import ArticleForm
 from .models import Article
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.paginator import Paginator
+from django.db.models import Q
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 
 
 
 @ensure_csrf_cookie
 @login_required
 def article_list(request):
-    articles_qs = Article.objects.all().order_by('-created_at')
+    articles_qs = Article.objects.all().order_by('position')
+    
+    # 1. Handle Search
+    query = request.GET.get('q', '')
+    if query:
+        articles_qs = articles_qs.filter(
+            Q(title__icontains=query) | Q(slug__icontains=query)
+        )
 
-    paginator = Paginator(articles_qs, 10)  
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    # 2. Handle AJAX Live Search (No new page needed)
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        # We render the SAME template but only a specific block or just loop the rows
+        html = render_to_string('articles/list.html', {'articles': articles_qs}, request=request)
+        # We use a trick: extract only the <tbody> content from the rendered string
+        import re
+        tbody_content = re.search(r'<tbody id="sortable-tbody">([\s\S]*?)</tbody>', html).group(1)
+        return JsonResponse({'html': tbody_content})
+
+    # 3. Standard Pagination for initial load
+    paginator = Paginator(articles_qs, 5)
+    page_obj = paginator.get_page(request.GET.get('page'))
 
     return render(request, 'articles/list.html', {
-        'articles': page_obj,      
+        'articles': page_obj,
         'page_obj': page_obj,
     })
 
@@ -49,8 +66,8 @@ def article_create(request):
 
 
 @login_required
-def article_edit(request, pk):
-    article = get_object_or_404(Article, pk=pk)
+def article_edit(request, slug):
+    article = get_object_or_404(Article, slug=slug)
 
     # 1. Security: Only author or superuser can edit
     if article.author != request.user and not request.user.is_superuser:
@@ -86,43 +103,3 @@ def article_edit(request, pk):
     })
 
 
-
-
-
-
-
-    if request.method == "POST":
-        # Get the list of selected article IDs
-        selected_ids = request.POST.getlist('selected_ids')
-        action = request.POST.get('action')
-
-        if not selected_ids:
-            messages.warning(request, "No articles selected.")
-            return redirect('article_list')
-
-        # Filter only articles the user is allowed to modify
-        articles = Article.objects.filter(id__in=selected_ids)
-
-        # Optional: only allow author or superuser
-        articles = articles.filter(author=request.user) | articles.filter(author__isnull=False, author__is_superuser=True)
-        
-        # Perform the chosen action
-        if action == "delete":
-            for article in articles:
-                if article.image:
-                    article.image.delete(save=False)  # delete image file
-                article.delete()
-            messages.success(request, "Selected articles deleted successfully!")
-
-        elif action == "activate":
-            articles.update(is_active=True)
-            messages.success(request, "Selected articles activated successfully!")
-
-        elif action == "deactivate":
-            articles.update(is_active=False)
-            messages.success(request, "Selected articles deactivated successfully!")
-
-        else:
-            messages.warning(request, "Invalid action.")
-
-    return redirect('article_list')

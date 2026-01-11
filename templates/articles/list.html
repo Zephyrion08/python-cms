@@ -2,29 +2,24 @@
 {% block content %}
 
 <h2>Articles</h2>
-
 <a href="{% url 'article_create' %}" class="btn">+ Add Article</a>
+
+<div class="search-container" style="margin: 15px 0;">
+    <input type="text" id="article-search" placeholder="Search entire database live..." 
+           value="{{ request.GET.q|default:'' }}" style="padding:5px 10px; width:250px;">
+</div>
 
 <form method="post" action="{% url 'bulk_action' 'article' %}">
     {% csrf_token %}
-
-    <!-- Bulk Action Buttons -->
     <div class="bulk-actions">
-        <!-- Single toggle button -->
-        <button type="submit" name="action" value="toggle" class="btn">
-            Status
-        </button>
-
-        <!-- Bulk delete button -->
-        <button type="button" class="btn" onclick="openDeleteModal('article', null, '/bulk/article/', true)">
-            Delete
-        </button>
+        <button type="submit" name="action" value="toggle" class="btn">Status</button>
+        <button type="button" class="btn btn-danger" onclick="openDeleteModal('article', null, '/bulk/article/', true)">Delete</button>
     </div>
 
-    <!-- Table -->
     <table class="log-table">
         <thead>
             <tr>
+                <th style="width: 30px;"></th> 
                 <th><input type="checkbox" id="select-all"></th>
                 <th>Title</th>
                 <th>Status</th>
@@ -32,29 +27,26 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="sortable-tbody">
             {% for a in articles %}
-            <tr>
-                <td><input type="checkbox" name="selected_ids" value="{{ a.id }}" class="row-checkbox"> </td>
-                <td>{{ a.title }}<br><small>{{ a.slug }}</small></td>
+            <tr data-id="{{ a.id }}">
+                <td class="drag-handle" style="cursor: grab; color: #9ca3af;">
+                    <i class="fa-solid fa-grip-vertical"></i>
+                </td>
+                <td><input type="checkbox" name="selected_ids" value="{{ a.id }}" class="row-checkbox"></td>
+                <td>
+                    <a href="{% url 'article_edit' a.slug %}">{{ a.title }}</a><br>
+                    <small>{{ a.slug }}</small>
+                </td>
                 <td id="status-{{ a.id }}" class="{% if a.is_active %}status-active{% else %}status-inactive{% endif %}">
                     {{ a.is_active|yesno:"Active,Inactive" }}
                 </td>
-                <td>
-                    {% if a.show_on_homepage %}
-                        <span class="badge badge-green">Yes</span>
-                    {% else %}
-                        <span class="badge badge-gray">No</span>
-                    {% endif %}
-                </td>
+                <td>{{ a.show_on_homepage|yesno:"Yes,No" }}</td>
                 <td class="actions">
-                    <span class="status-toggle"
-                          data-url="{% url 'toggle_status' 'article' a.id %}"
-                          data-target="status-{{ a.id }}"
-                          onclick="event.preventDefault(); toggleStatus(this)">
+                    <span class="status-toggle" data-url="{% url 'toggle_status' 'article' a.id %}" onclick="toggleStatus(this)">
                         <i class="fa-solid {% if a.is_active %}fa-toggle-on{% else %}fa-toggle-off{% endif %}"></i>
                     </span>
-                    <a href="{% url 'article_edit' a.id %}" class="icon edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{% url 'article_edit' a.slug %}" class="icon edit"><i class="fa-solid fa-pen-to-square"></i></a>
                     <span class="icon delete" 
                         onclick="openDeleteModal('article', '{{ a.title }}', '{% url 'delete_object' 'article' a.id %}', false)">
                         <i class="fa-solid fa-trash"></i>
@@ -62,15 +54,33 @@
                 </td>
             </tr>
             {% empty %}
-            <tr>
-                <td style="text-align:center;">No articles found.</td>
-            </tr>
+            <tr><td colspan="6" style="text-align:center;">No articles found.</td></tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <div id="pagination-wrapper">
+        {% if page_obj.has_other_pages %}
+        <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 8px;">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn">Prev</a>
+            {% endif %}
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn">Next</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
 </form>
 
-
+    <script>
+      // This translates the Django tag into a real URL string for the JS file
+      const ARTICLE_UPDATE_ORDER_URL = "{% url 'sort' 'article' %}";
+      
+      // Also, if your JS file needs the CSRF token, ensure it's available:
+      const CSRF_TOKEN = "{{ csrf_token }}";
+  </script>
 
 
 

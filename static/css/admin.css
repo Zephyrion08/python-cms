@@ -201,7 +201,7 @@ body {
 .log-table td {
   padding: 12px 15px;
   border-bottom: 1px solid #f1f5f9;
-  color: #374151;
+
 }
 
 .log-table tr:last-child td {
@@ -213,22 +213,28 @@ body {
 }
 
 /* STATUS COLORS */
-.log-table td:nth-child(3) {
+.log-table td:nth-child(4) {
   font-weight: 500;
 }
 
-.log-table td:nth-child(3)::before {
-  content: "●";
+.log-table td:nth-child(4)::before {
   margin-right: 6px;
   font-size: 10px;
 }
 
-.log-table tr td:nth-child(3):contains("Active") {
+.status-active {
   color: #16a34a;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
 }
 
-.log-table tr td:nth-child(3):contains("Inactive") {
+/* Inactive */
+.status-inactive {
   color: #dc2626;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
 }
 
 /* PAGE HEADER */
@@ -252,6 +258,7 @@ body {
   text-decoration: none;
   margin-bottom: 15px;
   transition: background 0.2s ease;
+  border: none;
 }
 
 .btn:hover {
@@ -533,6 +540,9 @@ body {
 .icon.edit {
     cursor: pointer;
 }
+i.fa-solid.fa-toggle-on {
+    color: green;
+}
 
 /* Optional: Add a slight hover effect to make it feel responsive */
 .status-toggle:hover, 
@@ -543,4 +553,10 @@ body {
 }
 .status-toggle, .icon {
     user-select: none; /* Prevents text highlighting on double click */
+}
+.log-table ul,
+.log-table li {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
 }

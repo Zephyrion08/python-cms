@@ -283,3 +283,78 @@ document.getElementById('select-all').addEventListener('change', function () {
     const checked = this.checked;
     document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = checked);
 });
+
+
+/* dortable  function */
+// Inside your external JS file
+document.addEventListener('DOMContentLoaded', function() {
+    const el = document.getElementById('sortable-tbody');
+    
+    if (el) { // Added a check to prevent errors on other pages
+        Sortable.create(el, {
+            handle: '.drag-handle',
+            animation: 150,
+            onEnd: function() {
+                let order = [];
+                el.querySelectorAll('tr').forEach(row => {
+                    order.push(row.getAttribute('data-id'));
+                });
+
+                // Use the variable we defined in the HTML file
+                fetch(ARTICLE_UPDATE_ORDER_URL, { 
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": CSRF_TOKEN, // Use the global CSRF variable
+                    },
+                    body: JSON.stringify({ order: order })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.status === 'success') {
+                        console.log("Order saved!");
+                    }
+                })
+                .catch(err => console.error("Error updating order:", err));
+            }
+        });
+    }
+});
+
+/* search function */
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('article-search');
+    const tableBody = document.getElementById('sortable-tbody');
+    const paginationWrapper = document.getElementById('pagination-wrapper');
+
+    let debounceTimer;
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim();
+
+        clearTimeout(debounceTimer);
+
+        // ⛔ Empty search → reload page (restore pagination)
+        if (query === '') {
+            window.location.href = window.location.pathname;
+            return;
+        }
+
+        debounceTimer = setTimeout(() => {
+            fetch(`?q=${encodeURIComponent(query)}`, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                tableBody.innerHTML = data.html;
+                paginationWrapper.style.display = 'none';
+            });
+        }, 300);
+    });
+
+
+    // Select All Logic
+    document.getElementById('select-all').addEventListener('change', function() {
+        document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = this.checked);
+    });
+});
