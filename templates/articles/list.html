@@ -2,18 +2,37 @@
 {% block content %}
 
 <h2>Articles</h2>
-<a href="{% url 'article_create' %}" class="btn">+ Add Article</a>
 
-<div class="search-container" style="margin: 15px 0;">
+<a href="{% url 'article_create' %}?from_homepage={{ request.GET.homepage|default:'' }}" class="btn">
+    + Add Article
+</a>
+
+
+<div class="search-container" style="margin: 15px 0; display: flex; gap: 10px; align-items: center;">
     <input type="text" id="article-search" placeholder="Search entire database live..." 
            value="{{ request.GET.q|default:'' }}" style="padding:5px 10px; width:250px;">
+
+   <form method="get" id="homepage-filter-form" style="margin:0;">
+        {% if request.GET.q %}
+            <input type="hidden" name="q" value="{{ request.GET.q }}">
+        {% endif %}
+        
+        <select name="homepage" onchange="this.form.submit();" style="padding:5px 10px;">
+             <option value="no" {% if request.GET.homepage == 'no' %}selected{% endif %}>Not Homepage</option>
+            <option value="yes" {% if request.GET.homepage == 'yes' %}selected{% endif %}>Homepage</option>
+        </select>
+    </form>
 </div>
+
 
 <form method="post" action="{% url 'bulk_action' 'article' %}">
     {% csrf_token %}
+
     <div class="bulk-actions">
         <button type="submit" name="action" value="toggle" class="btn">Status</button>
-        <button type="button" class="btn btn-danger" onclick="openDeleteModal('article', null, '/bulk/article/', true)">Delete</button>
+        <button type="button" class="btn" onclick="openDeleteModal('article', null, '/bulk/article/', true)">
+            Delete
+        </button>
     </div>
 
     <table class="log-table">
@@ -33,17 +52,28 @@
                 <td class="drag-handle" style="cursor: grab; color: #9ca3af;">
                     <i class="fa-solid fa-grip-vertical"></i>
                 </td>
-                <td><input type="checkbox" name="selected_ids" value="{{ a.id }}" class="row-checkbox"></td>
-                <td>
-                    <a href="{% url 'article_edit' a.slug %}">{{ a.title }}</a><br>
-                    <small>{{ a.slug }}</small>
-                </td>
+                
+                <td><input type="checkbox" name="selected_ids" value="{{ a.id }}" class="row-checkbox"> </td>
+                
+                <td><a href="{% url 'article_edit' a.slug %}">{{ a.title }}</a><br><small>{{ a.slug }}</small></td>
+                
                 <td id="status-{{ a.id }}" class="{% if a.is_active %}status-active{% else %}status-inactive{% endif %}">
                     {{ a.is_active|yesno:"Active,Inactive" }}
                 </td>
-                <td>{{ a.show_on_homepage|yesno:"Yes,No" }}</td>
+                
+                <td>
+                    {% if a.show_on_homepage %}
+                        <span class="badge badge-green">Yes</span>
+                    {% else %}
+                        <span class="badge badge-gray">No</span>
+                    {% endif %}
+                </td>
+                
                 <td class="actions">
-                    <span class="status-toggle" data-url="{% url 'toggle_status' 'article' a.id %}" onclick="toggleStatus(this)">
+                    <span class="status-toggle"
+                          data-url="{% url 'toggle_status' 'article' a.id %}"
+                          data-target="status-{{ a.id }}"
+                          onclick="event.preventDefault(); toggleStatus(this)">
                         <i class="fa-solid {% if a.is_active %}fa-toggle-on{% else %}fa-toggle-off{% endif %}"></i>
                     </span>
                     <a href="{% url 'article_edit' a.slug %}" class="icon edit"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -54,26 +84,31 @@
                 </td>
             </tr>
             {% empty %}
-            <tr><td colspan="6" style="text-align:center;">No articles found.</td></tr>
+            <tr>
+                <td colspan="6" style="text-align:center;">No articles found.</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
-
-    <div id="pagination-wrapper">
-        {% if page_obj.has_other_pages %}
+        <div id="pagination-wrapper">
+    {% if page_obj.has_other_pages %}
+        {% with request.GET.urlencode as query_params %}
         <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 8px;">
             {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}" class="btn">Prev</a>
+                <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.previous_page_number }}" class="btn">Prev</a>
             {% endif %}
+
             <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" class="btn">Next</a>
+                <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.next_page_number }}" class="btn">Next</a>
             {% endif %}
         </div>
-        {% endif %}
-    </div>
-</form>
+        {% endwith %}
+    {% endif %}
+</div>
 
+</form>
     <script>
       // This translates the Django tag into a real URL string for the JS file
       const ARTICLE_UPDATE_ORDER_URL = "{% url 'sort' 'article' %}";
@@ -81,7 +116,5 @@
       // Also, if your JS file needs the CSRF token, ensure it's available:
       const CSRF_TOKEN = "{{ csrf_token }}";
   </script>
-
-
 
 {% endblock %}

@@ -5,6 +5,8 @@ urlpatterns = [
     path('', views.article_list, name='article_list'),
     path('create/', views.article_create, name='article_create'),
     path('article/edit/<slug:slug>/', views.article_edit, name='article_edit'),
+    
+
 
 
 

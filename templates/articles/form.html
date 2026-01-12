@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 {{ form.media }}
-<h2>Articles</h2>
+
+<h2>Create Article</h2>
 
 <a href="{% url 'article_list' %}" class="btn">← Back to Article</a>
 
-
-
 <div class="form-container">
-  <h2>
-    {% if is_edit %}Edit Article{% else %}Create Article{% endif %}
-  </h2>
 
-  <form method="post" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data" data-model="article">
     {% csrf_token %}
- 
 
+    {% if form.non_field_errors %}
+      <div class="error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <!-- Title -->
     <div class="form-group">
       {{ form.title.label_tag }}
       {{ form.title }}
@@ -25,6 +25,7 @@
       {% endif %}
     </div>
 
+    <!-- Subtitle -->
     <div class="form-group">
       {{ form.subtitle.label_tag }}
       {{ form.subtitle }}
@@ -34,64 +35,73 @@
       {% endif %}
     </div>
 
+    <!-- Slug -->
     {% if form.slug %}
     <div class="form-group">
       {{ form.slug.label_tag }}
       {{ form.slug }}
       <small class="help-text">{{ form.slug.help_text }}</small>
+      <small id="slug-message" class="help-text"></small>
+      {% if form.slug.errors %}
+          <div class="error">{{ form.slug.errors }}</div>
+      {% endif %}
     </div>
     {% endif %}
 
+    <!-- Image -->
     <div class="form-group">
         {{ form.image.label_tag }}
-        
+        {% if form.image.errors %}
+            <div class="error">{{ form.image.errors }}</div>
+        {% endif %}
         <div class="input-file-container">
             {{ form.image }}
         </div>
+        <small class="help-text">
+            Allowed formats: JPG, PNG, GIF, WebP | Max size: 5MB | Max dimensions: 1920x1280px
+        </small>
 
         <div id="imagePreview" class="mt-2">
-            {% if is_edit and form.instance.image %}
-                <div class="preview-wrapper" style="position:relative; display:inline-block;">
-                    <img src="{{ form.instance.image.url }}" 
-                        style="max-width:200px; max-height:150px; border-radius:4px; border:1px solid #ddd;">
-                    <span class="remove-image">×</span>
-                </div>
-            {% else %}
-                <p class="no-image text-muted">No image selected</p>
-            {% endif %}
+            <p class="no-image text-muted">No image selected</p>
         </div>
-        
+
         <input type="hidden" name="remove_image" id="remove_image" value="0">
     </div>
 
-
-
+    <!-- Content -->
     <div class="form-group">
       {{ form.content.label_tag }}
       {{ form.content }}
+      {% if form.content.errors %}
+          <div class="error">{{ form.content.errors }}</div>
+      {% endif %}
     </div>
 
+    <!-- Show on homepage -->
+    <input type="hidden" name="show_on_homepage" value="{% if force_homepage %}1{% else %}0{% endif %}">
     <div class="form-group">
-      {{ form.show_on_homepage.label_tag }}
-      {{ form.show_on_homepage }}
+        <label>Status:</label>
+        <div style="background:#e0f2fe; color:#0369a1; padding:10px; border-radius:4px; border:1px solid #bae6fd;">
+            <strong>Note:</strong> This article will be automatically published to the 
+            <b>{% if force_homepage %}Homepage{% else %}Not Homepage{% endif %}</b>.
+        </div>
     </div>
 
+    <!-- Active -->
     <div class="form-group checkbox-group">
         <label for="{{ form.is_active.id_for_label }}">
             {{ form.is_active }} {{ form.is_active.label }}
         </label>
     </div>
 
-
-
+    <!-- Actions -->
     <div class="form-actions">
-      <button type="submit" class="btn">
-        {% if is_edit %}Update{% else %}Create{% endif %}
-      </button>
+      <button type="submit" class="btn">Create</button>
       <a href="{% url 'article_list' %}" class="btn-cancel">Cancel</a>
     </div>
   </form>
 </div>
+
 
 
 {% endblock %}

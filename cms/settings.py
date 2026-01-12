@@ -106,6 +106,32 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'logs/django.log',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'file'],
+        'level': 'INFO',
+    },
+}
+
 
 
 
@@ -132,8 +158,24 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# File upload settings
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB in bytes
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB in bytes
+
+# Custom settings for image validation
+IMAGE_MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
+IMAGE_MAX_DIMENSIONS = (4000, 4000)  # width, height
+IMAGE_ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp']
+IMAGE_ALLOWED_MIMETYPES = [
+    'image/jpeg',
+    'image/png', 
+    'image/gif',
+    'image/webp'
+]
+
+
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICT_BY_DATE = False
 
