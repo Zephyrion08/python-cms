@@ -1,40 +1,133 @@
-console.log("load")
+/**
+ * Global Configuration
+ */
+const CONFIG = {
+    images: {
+        maxSize: 5 * 1024 * 1024, // 5MB
+        allowedTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
+        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp']
+    },
+    limits: {
+        'id_title': 100,
+        'id_meta_title': 100,
+        'id_meta_description': 160,
+        'id_meta_keywords': 100
+    }
+};
 
+/* ==========================================================================
+   GLOBAL UTILITIES (Helpers)
+   ========================================================================== */
+
+/**
+ * Robust CSRF Token Fetcher
+ * Checks Cookie first, then falls back to Body Data Attribute
+ */
 function getCSRFToken() {
     let cookieValue = null;
     const name = 'csrftoken';
+    
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
-            if (cookie.startsWith(name + '=')) {
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
             }
         }
     }
+    
+    // Fallback for some setups
+    if (!cookieValue && document.body && document.body.dataset.csrfToken) {
+        cookieValue = document.body.dataset.csrfToken;
+    }
     return cookieValue;
 }
 
-/* sidebar toggler */
-const toggleBtn = document.getElementById("toggleSidebar");
-const sidebar = document.getElementById("sidebar");
-const main = document.getElementById("main");
+/**
+ * Universal Flash Message Handler
+ * Displays a toast message in the container
+ */
+function showFlashMessage(text, type = 'info') {
+    const container = document.getElementById('messages-container');
+    if (!container) {
+        // Fallback if container doesn't exist
+        return alert(text);
+    }
 
-if (toggleBtn && sidebar && main) {
-    toggleBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("collapsed");
-        main.classList.toggle("collapsed");
-    });
+    const msgDiv = document.createElement("div");
+    msgDiv.className = `message ${type}`;
+    msgDiv.innerText = text;
+    container.appendChild(msgDiv);
+
+    // Auto-dismiss logic
+    setTimeout(() => {
+        msgDiv.style.opacity = '0';
+        setTimeout(() => msgDiv.remove(), 600);
+    }, 3000);
 }
 
-/* delete msg function */
+function slugify(text) {
+    return text.toString().toLowerCase().trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-');
+}
+
+/* ==========================================================================
+   GLOBAL ACTIONS (Functions called via onclick="" in HTML)
+   ========================================================================== */
+
+/**
+ * Toggle Status via AJAX
+ */
+function toggleStatus(el) {
+    const url = el.dataset.url;
+    const targetId = el.dataset.target;
+
+    fetch(url, {
+        method: "POST",
+        headers: { "X-CSRFToken": getCSRFToken() }
+    })
+    .then(res => res.json())
+    .then(data => {
+        const icon = el.querySelector("i");
+        if (data.status) {
+            icon.classList.replace("fa-toggle-off", "fa-toggle-on");
+            icon.style.color = "#22c55e";
+        } else {
+            icon.classList.replace("fa-toggle-on", "fa-toggle-off");
+            icon.style.color = "#9ca3af";
+        }
+
+        // Update Status Text Cell if it exists
+        if (targetId) {
+            const statusCell = document.getElementById(targetId);
+            if (statusCell) {
+                statusCell.innerText = data.status ? "Active" : "Inactive";
+                statusCell.className = data.status ? "status-active" : "status-inactive";
+            }
+        }
+        
+        // Show feedback
+        if (data.message) {
+            showFlashMessage(data.message, data.status ? 'success' : 'info');
+        }
+    })
+    .catch(err => console.error("Toggle failed:", err));
+}
+
+/**
+ * Delete Modal Logic
+ */
 function openDeleteModal(modelName, itemNameOrCount, url, isBulk = false) {
     const modal = document.getElementById('deleteModal');
     const form = document.getElementById('deleteForm');
     const modalText = document.getElementById('modal-text');
+    if (!modal || !form) return;
 
-    // 1. Handle IDs for Bulk
+    // Clear old hidden inputs
     form.querySelectorAll('input[name="ids"]').forEach(i => i.remove());
     
     if (isBulk) {
@@ -50,11 +143,9 @@ function openDeleteModal(modelName, itemNameOrCount, url, isBulk = false) {
         idsInput.value = selected.join(',');
         form.appendChild(idsInput);
     } else {
-        // 2. Handle Single Delete
         modalText.innerText = `Are you sure you want to delete "${itemNameOrCount}"?`;
     }
 
-    // 3. Set Action and Show
     form.action = url;
     modal.style.display = 'flex';
     setTimeout(() => modal.classList.add('show'), 10);
@@ -62,354 +153,359 @@ function openDeleteModal(modelName, itemNameOrCount, url, isBulk = false) {
 
 function closeDeleteModal() {
     const modal = document.getElementById('deleteModal');
+    if (!modal) return;
     modal.classList.remove('show');
     setTimeout(() => modal.style.display = 'none', 300);
 }
 
-window.onclick = function(event) {
-    const modal = document.getElementById('deleteModal');
-    if (event.target === modal) closeDeleteModal();
-}
+/* ==========================================================================
+   MAIN INITIALIZATION (DOMContentLoaded)
+   ========================================================================== */
 
-/* Message function */
 document.addEventListener('DOMContentLoaded', function() {
-    const alerts = document.querySelectorAll('.message');
+    console.log("App Loaded");
 
+    /* 1. Sidebar Toggler */
+    const toggleBtn = document.getElementById("toggleSidebar");
+    const sidebar = document.getElementById("sidebar");
+    const main = document.getElementById("main");
+    if (toggleBtn && sidebar && main) {
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("collapsed");
+            main.classList.toggle("collapsed");
+        });
+    }
+
+    /* 2. Modal Outside Click Closer */
+    window.onclick = function(event) {
+        const modal = document.getElementById('deleteModal');
+        if (event.target === modal) closeDeleteModal();
+    };
+
+    /* 3. Auto-Dismiss Existing Server Messages */
+    const alerts = document.querySelectorAll('.message');
     if (alerts.length > 0) {
-        alerts.forEach(function(alert) {
-            setTimeout(function() {
+        alerts.forEach(alert => {
+            setTimeout(() => {
                 alert.style.opacity = '0';
-                setTimeout(function() {
-                    alert.style.display = 'none';
-                }, 600); 
+                setTimeout(() => alert.style.display = 'none', 600);
             }, 3000);
         });
     }
-});
 
-/* Preview image function */
-document.addEventListener('DOMContentLoaded', function () {
-    const imageInput = document.querySelector('input[type="file"]');
-    const imagePreview = document.getElementById('imagePreview');
-    const removeInput = document.getElementById('remove_image');
-    const imageLabel = imageInput ? imageInput.previousElementSibling : null;
+    /* 4. Image Preview & Validation */
+    (function initImagePreview() {
+        const imageInput = document.querySelector('input[type="file"]');
+        const imagePreview = document.getElementById('imagePreview');
+        const removeInput = document.getElementById('remove_image');
+        
+        if (!imageInput || !imagePreview) return;
 
-    if (!imageInput || !imagePreview) return;
+        const imageLabel = imageInput.previousElementSibling;
 
-    // Validation constants
-    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
-    const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-    const ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-
-    function hideImageInput() {
-        imageInput.style.opacity = '0';
-        imageInput.style.height = '0';
-        imageInput.style.position = 'absolute';
-        if (imageLabel) imageLabel.style.display = 'none';
-    }
-
-    function showImageInput() {
-        imageInput.style.opacity = '1';
-        imageInput.style.height = 'auto';
-        imageInput.style.position = 'static';
-        if (imageLabel) imageLabel.style.display = 'block';
-    }
-
-    function clearPreview() {
-        removeInput.value = '1';  // mark for removal
-        imagePreview.innerHTML = '<p class="no-image">No image selected</p>';
-        showImageInput();
-        imageInput.value = ''; // clear file input
-    }
-
-    // Remove image when clicking ×
-    imagePreview.addEventListener('click', function(e) {
-        if (e.target.closest('.remove-image')) {
-            e.preventDefault();
-            clearPreview();
-        }
-    });
-
-    // Upload new image with client-side validation
-    imageInput.addEventListener('change', function() {
-        const file = this.files[0];
-        if (!file) return;
-
-        // Client-side validation (optional, server-side is the real security)
-        if (file.size > MAX_SIZE) {
-            alert(`File too large! Maximum size is 5MB. Your file is ${(file.size / (1024*1024)).toFixed(1)}MB`);
-            this.value = '';
-            return;
+        function toggleInputVisibility(show) {
+            if (show) {
+                imageInput.style.opacity = '1';
+                imageInput.style.height = 'auto';
+                imageInput.style.position = 'static';
+                if (imageLabel) imageLabel.style.display = 'block';
+            } else {
+                imageInput.style.opacity = '0';
+                imageInput.style.height = '0';
+                imageInput.style.position = 'absolute';
+                if (imageLabel) imageLabel.style.display = 'none';
+            }
         }
 
-        if (!ALLOWED_TYPES.includes(file.type)) {
-            alert('Invalid file type! Allowed types: JPG, PNG, GIF, WebP');
-            this.value = '';
-            return;
-        }
-
-        const extension = file.name.split('.').pop().toLowerCase();
-        if (!ALLOWED_EXTENSIONS.includes(extension)) {
-            alert(`Invalid file extension '.${extension}'! Allowed: ${ALLOWED_EXTENSIONS.join(', ')}`);
-            this.value = '';
-            return;
-        }
-
-        // All validations passed - show preview
-        removeInput.value = '0'; // user uploaded new image
-        const reader = new FileReader();
-        reader.onload = function(e) {
+        function renderPreview(src) {
             imagePreview.innerHTML = `
                 <div class="preview-wrapper" style="position:relative; display:inline-block;">
-                    <img src="${e.target.result}" 
-                         style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
-                    <span class="remove-image" style="
-                          position:absolute;
-                          top:-5px;
-                          right:-5px;
-                          background:#ef4444;
-                          color:white;
-                          border-radius:50%;
-                          width:20px;
-                          height:20px;
-                          text-align:center;
-                          line-height:20px;
-                          cursor:pointer;
-                          font-weight:bold;">×</span>
-                </div>
-            `;
-            hideImageInput();
-        };
-        reader.readAsDataURL(file);
-    });
-
-    // Initial state: hide input if image exists
-    if (imagePreview.querySelector('img')) {
-        hideImageInput();
-    } else {
-        showImageInput();
-    }
-});
-
-/* generate slug function */
-function slugify(text) {
-    return text
-        .toString()
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/[^\w\-]+/g, '')
-        .replace(/\-\-+/g, '-');
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    const titleInput = document.getElementById("id_title");
-    const slugInput = document.getElementById("id_slug");
-    const slugMessage = document.getElementById("slug-message");
-    const articleIdInput = document.getElementById("article-id");
-    const modelNameInput = document.getElementById("model-name"); // ✅ Get model name
-
-    if (!titleInput || !slugInput) return;
-
-    const objectId = articleIdInput ? articleIdInput.value : "";
-    const modelName = modelNameInput ? modelNameInput.value : "article"; // ✅ Default to 'article'
-    
-    let debounceTimer;
-    let slugTouched = false;
-
-    slugInput.addEventListener("input", function () {
-        slugTouched = true;
-    });
-
-    titleInput.addEventListener("input", function () {
-        if (!slugTouched) {
-            slugInput.value = slugify(titleInput.value);
+                    <img src="${src}" style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
+                    <span class="remove-image" style="position:absolute; top:-5px; right:-5px; background:#ef4444; color:white; border-radius:50%; width:20px; height:20px; text-align:center; line-height:20px; cursor:pointer; font-weight:bold;">×</span>
+                </div>`;
+            toggleInputVisibility(false);
         }
 
-        clearTimeout(debounceTimer);
+        // Event: Remove Image
+        imagePreview.addEventListener('click', function(e) {
+            if (e.target.closest('.remove-image')) {
+                e.preventDefault();
+                removeInput.value = '1';
+                imagePreview.innerHTML = '<p class="no-image">No image selected</p>';
+                imageInput.value = '';
+                toggleInputVisibility(true);
+            }
+        });
 
-        debounceTimer = setTimeout(() => {
-            const title = titleInput.value.trim();
+        // Event: Upload Image
+        imageInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (!file) return;
 
-            if (!title) {
-                slugInput.value = "";
-                if (slugMessage) {
-                    slugMessage.textContent = "";
-                    slugMessage.style.color = "";
-                }
+            // Validations
+            if (file.size > CONFIG.images.maxSize) {
+                alert(`File too large! Max size: 5MB.`);
+                this.value = '';
+                return;
+            }
+            if (!CONFIG.images.allowedTypes.includes(file.type)) {
+                alert('Invalid file type! Allowed: JPG, PNG, GIF, WebP');
+                this.value = '';
                 return;
             }
 
-            // ✅ Dynamic URL using modelName variable
-            fetch(`/ajax/check-slug/${modelName}/?title=${encodeURIComponent(title)}&object_id=${objectId}`)
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error(`HTTP error! status: ${res.status}`);
-                    }
-                    return res.json();
-                })
-                .then(data => {
-                    if (data.error) {
-                        if (slugMessage) {
-                            slugMessage.textContent = `⚠️ ${data.error}`;
-                            slugMessage.style.color = "#f59e0b";
+            // Success -> Show Preview
+            removeInput.value = '0';
+            const reader = new FileReader();
+            reader.onload = (e) => renderPreview(e.target.result);
+            reader.readAsDataURL(file);
+        });
+
+        // Initial State Check
+        if (imagePreview.querySelector('img')) {
+            toggleInputVisibility(false);
+        }
+    })();
+
+    /* 5. Slug Generation */
+    (function initSlugGenerator() {
+        const titleInput = document.getElementById("id_title");
+        const slugInput = document.getElementById("id_slug");
+        const slugMessage = document.getElementById("slug-message");
+        const articleIdInput = document.getElementById("article-id");
+        const modelNameInput = document.getElementById("model-name");
+
+        if (!titleInput || !slugInput) return;
+
+        const objectId = articleIdInput ? articleIdInput.value : "";
+        const modelName = modelNameInput ? modelNameInput.value : "article";
+        
+        let debounceTimer;
+        let slugTouched = false;
+
+        slugInput.addEventListener("input", () => slugTouched = true);
+
+        titleInput.addEventListener("input", function () {
+            if (!slugTouched) slugInput.value = slugify(titleInput.value);
+
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                const title = titleInput.value.trim();
+                if (!title) {
+                    slugInput.value = "";
+                    if (slugMessage) slugMessage.textContent = "";
+                    return;
+                }
+
+                fetch(`/ajax/check-slug/${modelName}/?title=${encodeURIComponent(title)}&object_id=${objectId}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.error) {
+                            if (slugMessage) {
+                                slugMessage.textContent = `⚠️ ${data.error}`;
+                                slugMessage.style.color = "#f59e0b";
+                            }
+                            return;
                         }
-                        return;
-                    }
+                        slugInput.value = data.slug;
+                        if (slugMessage) {
+                            if (data.exists) {
+                                slugMessage.textContent = `❌ Title exists (slug adjusted)`;
+                                slugMessage.style.color = "#dc2626";
+                            } else {
+                                slugMessage.textContent = "✅ Slug available";
+                                slugMessage.style.color = "#16a34a";
+                            }
+                        }
+                    })
+                    .catch(err => console.error("Slug check failed:", err));
+            }, 400);
+        });
+    })();
 
-                    slugInput.value = data.slug;
-
-                    if (!slugMessage) return;
-
-                    if (data.exists) {
-                        slugMessage.textContent = `❌ A ${modelName} with this title already exists`;
-                        slugMessage.style.color = "#dc2626";
-                    } else {
-                        slugMessage.textContent = "✅ Slug is available";
-                        slugMessage.style.color = "#16a34a";
-                    }
-                })
-                .catch(err => {
-                    console.error("Slug check failed:", err);
-                    if (slugMessage) {
-                        slugMessage.textContent = "⚠️ Could not verify slug. Please try again.";
-                        slugMessage.style.color = "#f59e0b";
-                    }
-                });
-        }, 400);
-    });
-});
-
-/* toggle status function */
-function toggleStatus(el) {
-    const url = el.dataset.url;
-    const targetId = el.dataset.target;
-
-    fetch(url, {
-        method: "POST",
-        headers: {
-            "X-CSRFToken": getCSRFToken(),
-        }
-    })
-    .then(res => res.json())
-    .then(data => {
-        const icon = el.querySelector("i");
-
-        if (data.status) {
-            icon.classList.remove("fa-toggle-off");
-            icon.classList.add("fa-toggle-on");
-            icon.style.color = "#22c55e";
-        } else {
-            icon.classList.remove("fa-toggle-on");
-            icon.classList.add("fa-toggle-off");
-            icon.style.color = "#9ca3af";
-        }
-
-        if (targetId) {
-            const statusCell = document.getElementById(targetId);
-            if (statusCell) {
-                statusCell.innerText = data.status ? "Active" : "Inactive";
-                statusCell.className = data.status ? "status-active" : "status-inactive";
-            }
-        }
-        if (data.message) {
-            const container = document.getElementById('messages-container');
-            if (container) {
-                const msgDiv = document.createElement("div");
-                msgDiv.className = `message ${data.status ? 'success' : 'info'}`;
-                msgDiv.innerText = data.message;
-                container.appendChild(msgDiv);
-
-                setTimeout(() => {
-                    msgDiv.style.opacity = '0';
-                    setTimeout(() => {
-                        msgDiv.remove();
-                    }, 600);
-                }, 3000);
-            }
-        }
-    })
-    .catch(err => console.error("Toggle failed:", err));
-}
-
-/* bulk action function */
-document.addEventListener('DOMContentLoaded', function() {
+    /* 6. Bulk Selection */
     const selectAll = document.getElementById('select-all');
     if (selectAll) {
         selectAll.addEventListener('change', function () {
-            const checked = this.checked;
-            document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = checked);
+            document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = this.checked);
         });
     }
-});
 
-/* sortable function */
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('sortable-tbody');
-    
-    if (el && typeof Sortable !== 'undefined') {
+    /* 7. Sortable (Drag & Drop) */
+    (function initSortable() {
+        const el = document.getElementById('sortable-tbody');
+        if (!el || typeof Sortable === 'undefined') return;
+
+        const updateUrl = el.dataset.updateUrl;
+        
         Sortable.create(el, {
             handle: '.drag-handle',
             animation: 150,
             onEnd: function() {
-                let order = [];
-                el.querySelectorAll('tr').forEach(row => {
-                    order.push(row.getAttribute('data-id'));
-                });
+                if (!updateUrl) return;
+                const order = Array.from(el.querySelectorAll('tr'))
+                    .map(row => parseInt(row.getAttribute('data-id')))
+                    .filter(n => !isNaN(n));
 
-                if (typeof ARTICLE_UPDATE_ORDER_URL !== 'undefined') {
-                    fetch(ARTICLE_UPDATE_ORDER_URL, { 
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-CSRFToken": getCSRFToken(),
-                        },
-                        body: JSON.stringify({ order: order })
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        if(data.status === 'success') {
-                            console.log("Order saved!");
-                        }
-                    })
-                    .catch(err => console.error("Error updating order:", err));
+                fetch(updateUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCSRFToken(),
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({ order: order })
+                }).then(res => res.json())
+                  .then(data => console.log('Order update:', data.status));
+            }
+        });
+    })();
+
+    /* 8. Search & Pagination Handling */
+    (function initSearch() {
+        const searchInput = document.getElementById('article-search');
+        if (!searchInput) return;
+
+        const homepageSelect = document.querySelector('select[name="homepage"]');
+        let debounceTimer;
+
+        searchInput.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            const query = this.value.trim();
+
+            debounceTimer = setTimeout(() => {
+                const url = new URL(window.location);
+                const homepageValue = homepageSelect ? homepageSelect.value : 'no';
+                const perPage = url.searchParams.get('per_page') || '10';
+
+                // Update Params and Reload
+                if (query) url.searchParams.set('q', query);
+                else url.searchParams.delete('q');
+
+                url.searchParams.set('homepage', homepageValue);
+                url.searchParams.set('per_page', perPage);
+                
+                window.location.href = url.toString();
+            }, 500);
+        });
+    })();
+
+    /* 9. CKEditor "Read More" Button */
+    const readMoreBtn = document.getElementById('readMore');
+    if (readMoreBtn) {
+        readMoreBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances['id_content']) {
+                const editor = CKEDITOR.instances['id_content'];
+                const content = editor.getData();
+                
+                if (content.includes('read-more-separator')) {
+                    showFlashMessage('Read More separator already exists.', 'info');
+                    return;
                 }
+                
+                editor.insertHtml('<hr class="read-more-separator" style="border: 1px dashed #f60;" />');
+                editor.focus();
             }
         });
     }
-});
 
-/* search function */
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('article-search');
-    const tableBody = document.getElementById('sortable-tbody');
-    const paginationWrapper = document.getElementById('pagination-wrapper');
+    /* 10. Meta / SEO Toggles & Validation */
+    (function initSEOToggle() {
+        const toggleBtn = document.getElementById('toggleMeta');
+        const metaContent = document.getElementById('metaContent');
+        const statusIcon = document.getElementById('metaStatusIcon');
+        
+        if (!toggleBtn || !metaContent) return;
 
-    if (!searchInput) return;
+        const metaInputs = metaContent.querySelectorAll('input, textarea');
+        const form = document.querySelector('form[data-model="article"]');
 
-    let debounceTimer;
+        toggleBtn.addEventListener('click', function () {
+            const isHidden = metaContent.style.display === "none";
+            metaContent.style.display = isHidden ? "block" : "none";
+            statusIcon.textContent = isHidden ? "▲" : "▼";
 
-    searchInput.addEventListener('input', function() {
-        const query = this.value.trim();
-        clearTimeout(debounceTimer);
+            // Toggle Required Attributes
+            metaInputs.forEach(input => {
+                if (isHidden) input.setAttribute('required', '');
+                else {
+                    input.removeAttribute('required');
+                    input.classList.remove('input-error');
+                }
+            });
+        });
 
-        if (query === '') {
-            window.location.href = window.location.pathname;
-            return;
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                if (metaContent.style.display === "none") return;
+
+                let invalid = false;
+                metaInputs.forEach(input => {
+                    if (input.hasAttribute('required') && !input.value.trim()) {
+                        input.classList.add('input-error');
+                        invalid = true;
+                    } else {
+                        input.classList.remove('input-error');
+                    }
+                });
+
+                if (invalid) {
+                    e.preventDefault();
+                    alert("Please fill out all visible SEO / Meta fields.");
+                }
+            });
+        }
+    })();
+
+    /* 11. Character Counters */
+    Object.keys(CONFIG.limits).forEach(fieldId => {
+        const inputField = document.getElementById(fieldId);
+        if (!inputField) return;
+
+        let counterId = '';
+        if (fieldId === 'id_title') counterId = 'title-counter';
+        else if (fieldId === 'id_meta_title') counterId = 'meta-title-counter';
+        else if (fieldId === 'id_meta_description') counterId = 'meta-desc-counter';
+        else if (fieldId === 'id_meta_keywords') counterId = 'meta-keywords-counter';
+
+        const counter = document.getElementById(counterId);
+        if (!counter) return;
+
+        const maxChars = CONFIG.limits[fieldId];
+
+        function updateCounter() {
+            const remaining = maxChars - inputField.value.length;
+            counter.textContent = remaining >= 0 ? remaining : 0;
+            if (inputField.value.length > maxChars) {
+                inputField.value = inputField.value.substring(0, maxChars);
+            }
+        }
+        
+        updateCounter();
+        inputField.addEventListener("input", updateCounter);
+    });
+
+    /* 12. URL Parameter Cleanup */
+    (function cleanupURL() {
+        // Only run this if we are on a page with the article search bar
+        const isArticleListPage = document.getElementById('article-search');
+        if (!isArticleListPage) return;
+
+        const url = new URL(window.location);
+        let changed = false;
+
+        if (!url.searchParams.has("homepage")) {
+            url.searchParams.set("homepage", "no");
+            changed = true;
+        }
+        if (url.searchParams.get("q") === "") {
+            url.searchParams.delete("q");
+            changed = true;
         }
 
-        debounceTimer = setTimeout(() => {
-            fetch(`?q=${encodeURIComponent(query)}`, {
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            })
-            .then(response => response.json())
-            .then(data => {
-                tableBody.innerHTML = data.html;
-                if (paginationWrapper) {
-                    paginationWrapper.style.display = 'none';
-                }
-            })
-            .catch(err => console.error("Search failed:", err));
-        }, 300);
-    });
+        if (changed) {
+            window.history.replaceState({}, "", url);
+        }
+    })();
 });

@@ -4,7 +4,7 @@
 
 <h2>Create Article</h2>
 
-<a href="{% url 'article_list' %}" class="btn">← Back to Article</a>
+<a href="{% url 'article_list' %}{% if force_homepage %}?homepage=yes{% else %}?homepage=no{% endif %}" class="btn">← Back to Article</a>
 
 <div class="form-container">
 
@@ -72,6 +72,12 @@
     <div class="form-group">
       {{ form.content.label_tag }}
       {{ form.content }}
+      <a class="btn medium bg-orange mrg5T"
+        title="Read More"
+        id="readMore"
+        href="javascript:void(0);">
+            <span class="button-content">Read More</span>
+        </a>
       {% if form.content.errors %}
           <div class="error">{{ form.content.errors }}</div>
       {% endif %}
@@ -94,14 +100,64 @@
         </label>
     </div>
 
+    <div class="meta-collapsible-wrapper" style="margin-top: 20px; border: 1px solid #ddd; border-radius: 4px;">
+    <button type="button" id="toggleMeta" class="btn-secondary" style="width: 100%; text-align: left; padding: 10px; background: #f8f9fa; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: bold;">SEO / Meta Information (Optional)</span>
+        <span id="metaStatusIcon">▼</span>
+    </button>
+
+    <div id="metaContent" style="display: none; padding: 15px; border-top: 1px solid #ddd; background: #fff;">
+        
+        <!-- Meta Title -->
+        <div class="form-group">
+            {{ form.meta_title.label_tag }}
+            {{ form.meta_title }}
+            <small class="help-text">
+                Title for search results. Defaults to Article Title if empty. 
+                <strong><span id="meta-title-counter">100</span> characters remaining</strong>
+            </small>
+            {% if form.meta_title.errors %}
+                <div class="error">{{ form.meta_title.errors }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Meta Description -->
+        <div class="form-group">
+            {{ form.meta_description.label_tag }}
+            {{ form.meta_description }}
+            <small class="help-text">
+                <strong><span id="meta-desc-counter">160</span> characters remaining</strong>
+            </small>
+            {% if form.meta_description.errors %}
+                <div class="error">{{ form.meta_description.errors }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Meta Keywords -->
+        <div class="form-group">
+            {{ form.meta_keywords.label_tag }}
+            {{ form.meta_keywords }}
+            <small class="help-text">
+                Comma-separated (e.g. news, technology, django). 
+                <strong><span id="meta-keywords-counter">100</span> characters remaining</strong>
+            </small>
+            {% if form.meta_keywords.errors %}
+                <div class="error">{{ form.meta_keywords.errors }}</div>
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
+
+<div style="margin-bottom: 20px;"></div>
+
     <!-- Actions -->
     <div class="form-actions">
       <button type="submit" class="btn">Create</button>
-      <a href="{% url 'article_list' %}" class="btn-cancel">Cancel</a>
+      <a href="{% url 'article_list' %}{% if force_homepage %}?homepage=yes{% else %}?homepage=no{% endif %}" class="btn-cancel">Cancel</a>
     </div>
   </form>
 </div>
-
-
 
 {% endblock %}

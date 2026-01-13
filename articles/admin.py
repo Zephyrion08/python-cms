@@ -15,6 +15,19 @@ class ArticleAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at'
     )
+    fieldsets = (
+        ("Main Content", {
+            "fields": ("title", "subtitle", "slug", "content", "image", "author")
+        }),
+        ("SEO Meta Data (Database)", {
+            "classes": ("collapse",),  # This makes the section toggleable
+            "fields": ("meta_title", "meta_description", "meta_keywords"),
+            "description": "These fields are saved in the DB and used for frontend <meta> tags."
+        }),
+        ("Display Settings", {
+            "fields": ("show_on_homepage", "is_active", "position")
+        }),
+    )
     
     # Make fields clickable
     list_display_links = ('title', 'slug')

@@ -23,6 +23,22 @@ class Article(models.Model):
 
     position = models.PositiveIntegerField(default=0)
 
+    meta_title = models.CharField(
+        max_length=255, 
+        blank=True, 
+        help_text="The title displayed on search engine results (SEO Title)."
+    )
+    meta_description = models.TextField(
+        max_length=160, 
+        blank=True, 
+        help_text="A short summary of the article for search engines."
+    )
+    meta_keywords = models.CharField(
+        max_length=255, 
+        blank=True, 
+        help_text="Keywords separated by commas."
+    )
+
     class Meta:
         ordering = ['position']
         

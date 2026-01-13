@@ -21,10 +21,13 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = [
             'title', 'subtitle', 'slug', 'image', 'content',
-            'show_on_homepage', 'is_active'
+            'show_on_homepage', 'is_active','meta_title', 'meta_description', 'meta_keywords'
         ] 
         widgets = {
             'image': forms.FileInput(),
+            'meta_description': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Write SEO summary...'}),
+            'meta_title': forms.TextInput(attrs={'placeholder': 'SEO Title...'}),
+            'meta_keywords': forms.TextInput(attrs={'placeholder': 'tag1, tag2...'}),
         }
 
     def clean_image(self):

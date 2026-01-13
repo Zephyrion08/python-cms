@@ -1,39 +1,74 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Articles</h2>
+{# Header row: H2 on left, homepage dropdown next to it, Add Article on far right #}
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+        <h2 style="margin:0;">Articles</h2>
 
-<a href="{% url 'article_create' %}?from_homepage={{ request.GET.homepage|default:'' }}" class="btn">
-    + Add Article
-</a>
+        <form method="get" id="homepage-filter-form" style="margin:0;">
+            {% if request.GET.q %}
+                <input type="hidden" name="q" value="{{ request.GET.q }}">
+            {% endif %}
+            {% if request.GET.per_page %}
+                <input type="hidden" name="per_page" value="{{ request.GET.per_page }}">
+            {% endif %}
 
+            <select name="homepage" onchange="this.form.submit();" style="padding:5px 10px;">
+                <option value="no" {% if request.GET.homepage == 'no' or not request.GET.homepage %}selected{% endif %}>
+                    Not Homepage
+                </option>
+                <option value="yes" {% if request.GET.homepage == 'yes' %}selected{% endif %}>
+                    Homepage
+                </option>
+            </select>
+        </form>
+    </div>
 
-<div class="search-container" style="margin: 15px 0; display: flex; gap: 10px; align-items: center;">
-    <input type="text" id="article-search" placeholder="Search entire database live..." 
-           value="{{ request.GET.q|default:'' }}" style="padding:5px 10px; width:250px;">
-
-   <form method="get" id="homepage-filter-form" style="margin:0;">
-        {% if request.GET.q %}
-            <input type="hidden" name="q" value="{{ request.GET.q }}">
-        {% endif %}
-        
-        <select name="homepage" onchange="this.form.submit();" style="padding:5px 10px;">
-             <option value="no" {% if request.GET.homepage == 'no' %}selected{% endif %}>Not Homepage</option>
-            <option value="yes" {% if request.GET.homepage == 'yes' %}selected{% endif %}>Homepage</option>
-        </select>
-    </form>
+    <a href="{% url 'article_create' %}{% if request.GET.homepage == 'yes' %}?from_homepage=yes{% endif %}" class="btn">
+        + Add Article
+    </a>
 </div>
 
+{# Search on left, Items per page, Status/Delete on right - OUTSIDE the bulk form #}
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+    <div style="display:flex; align-items:center; gap:10px;">
+        {# Search #}
+        <input type="text" id="article-search"
+               placeholder="Search entire database live..."
+               value="{{ request.GET.q|default:'' }}"
+               style="padding:5px 10px; width:250px;">
 
-<form method="post" action="{% url 'bulk_action' 'article' %}">
-    {% csrf_token %}
+        {# Items per page - STANDALONE form #}
+        <form method="get" id="per-page-form" style="margin:0;">
+            {% if request.GET.q %}
+                <input type="hidden" name="q" value="{{ request.GET.q }}">
+            {% endif %}
+            {% if request.GET.homepage %}
+                <input type="hidden" name="homepage" value="{{ request.GET.homepage }}">
+            {% endif %}
 
-    <div class="bulk-actions">
-        <button type="submit" name="action" value="toggle" class="btn">Status</button>
-        <button type="button" class="btn" onclick="openDeleteModal('article', null, '/bulk/article/', true)">
+            <select name="per_page" onchange="this.form.submit();" style="padding:5px 10px;">
+                <option value="10" {% if request.GET.per_page == '10' or not request.GET.per_page %}selected{% endif %}>10</option>
+                <option value="20" {% if request.GET.per_page == '20' %}selected{% endif %}>20</option>
+                <option value="50" {% if request.GET.per_page == '50' %}selected{% endif %}>50</option>
+            </select>
+        </form>
+    </div>
+
+    {# Bulk actions #}
+    <div style="display:flex; gap:8px;">
+        <button type="button" class="btn btn-cancel" onclick="document.getElementById('bulk-form').querySelector('button[name=action][value=toggle]').click()">Status</button>
+        <button type="button" class="btn btn-danger"
+                onclick="openDeleteModal('article', null, '/bulk/article/', true)">
             Delete
         </button>
     </div>
+</div>
+
+{# NOW the bulk action form wraps only the table #}
+<form method="post" action="{% url 'bulk_action' 'article' %}" id="bulk-form">
+    {% csrf_token %}
 
     <table class="log-table">
         <thead>
@@ -46,7 +81,7 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody id="sortable-tbody">
+        <tbody id="sortable-tbody" data-update-url="{% url 'sort' 'article' %}">
             {% for a in articles %}
             <tr data-id="{{ a.id }}">
                 <td class="drag-handle" style="cursor: grab; color: #9ca3af;">
@@ -90,31 +125,35 @@
             {% endfor %}
         </tbody>
     </table>
-        <div id="pagination-wrapper">
-    {% if page_obj.has_other_pages %}
-        {% with request.GET.urlencode as query_params %}
-        <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 8px;">
-            {% if page_obj.has_previous %}
-                <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.previous_page_number }}" class="btn">Prev</a>
-            {% endif %}
 
-            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-
-            {% if page_obj.has_next %}
-                <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.next_page_number }}" class="btn">Next</a>
-            {% endif %}
-        </div>
-        {% endwith %}
-    {% endif %}
-</div>
-
+    {# Hidden submit buttons for bulk actions #}
+    <button type="submit" name="action" value="toggle" style="display:none;"></button>
 </form>
-    <script>
-      // This translates the Django tag into a real URL string for the JS file
-      const ARTICLE_UPDATE_ORDER_URL = "{% url 'sort' 'article' %}";
-      
-      // Also, if your JS file needs the CSRF token, ensure it's available:
-      const CSRF_TOKEN = "{{ csrf_token }}";
-  </script>
+
+{# Pagination outside the form - ALWAYS SHOW #}
+{% if page_obj and page_obj.paginator.num_pages > 1 %}
+    {% with request.GET.urlencode as query_params %}
+    <div id="pagination-wrapper" class="pagination" style="margin-top: 20px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+        {% if page_obj.has_previous %}
+            <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.previous_page_number }}" class="btn">Prev</a>
+        {% endif %}
+
+        <span style="color: #6b7280;">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            <small>({{ page_obj.paginator.count }} total)</small>
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.next_page_number }}" class="btn">Next</a>
+        {% endif %}
+    </div>
+    {% endwith %}
+{% elif page_obj %}
+    <div style="margin-top: 20px; text-align: center; color: #6b7280;">
+        <small>{{ page_obj.paginator.count }} result{{ page_obj.paginator.count|pluralize }}</small>
+    </div>
+{% endif %}
+
+
 
 {% endblock %}
