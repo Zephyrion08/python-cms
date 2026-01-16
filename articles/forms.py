@@ -13,8 +13,8 @@ class ArticleForm(forms.ModelForm):
     
     slug = forms.CharField(
         required=False,
-        help_text="Auto-generated from title",
-        widget=forms.TextInput(attrs={"readonly": "readonly"})
+        help_text="URL-friendly version of the title. Edit if needed.",
+        widget=forms.TextInput(attrs={"placeholder": "Auto-generated from title"})
     )
 
     class Meta:
@@ -106,21 +106,43 @@ class ArticleForm(forms.ModelForm):
         
         return image
 
-    def clean(self):
-        cleaned_data = super().clean()
-        title = cleaned_data.get('title')
-        slug = slugify(title) if title else ''
-
+    def clean_slug(self):
+        """Validate and clean the slug field"""
+        # Get the slug value directly from the form field
+        slug = self.cleaned_data.get('slug', '').strip()
+        
+        # If slug field is empty, generate from title
+        if not slug:
+            title = self.cleaned_data.get('title', '')
+            slug = slugify(title) if title else ''
+        else:
+            # If user provided a slug, ensure it's properly slugified
+            slug = slugify(slug)
+        
+        if not slug:
+            raise ValidationError("Slug cannot be empty. Please provide a title or slug.")
+        
+        # Check for duplicate slugs in database
         qs = Article.objects.filter(slug=slug)
         if self.instance.pk:
             qs = qs.exclude(pk=self.instance.pk)
-
+        
         if qs.exists():
-            raise forms.ValidationError(
-                "An article with this title already exists. Please change the title."
+            raise ValidationError(
+                f"The slug '{slug}' is already in use. Please choose a different one."
             )
+        
+        return slug
 
-        cleaned_data['slug'] = slug
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        # Ensure slug is set (in case clean_slug wasn't called due to other errors)
+        if 'slug' not in cleaned_data or not cleaned_data['slug']:
+            title = cleaned_data.get('title')
+            if title:
+                cleaned_data['slug'] = slugify(title)
+        
         return cleaned_data
 
     def save(self, commit=True):

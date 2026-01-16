@@ -287,93 +287,159 @@ document.addEventListener('DOMContentLoaded', function() {
     })();
 
     /* 5. Slug Generation */
-    (function initSlugGenerator() {
-        const titleInput = document.getElementById("id_title");
-        const slugInput = document.getElementById("id_slug");
-        const slugMessage = document.getElementById("slug-message");
-        const articleIdInput = document.getElementById("article-id");
-        const modelNameInput = document.getElementById("model-name");
+function setFormAction(action) {
+    document.getElementById('form-action').value = action;
+}
 
-        if (!titleInput || !slugInput) return;
+(function initSlugGenerator() {
+    const titleInput = document.getElementById("id_title");
+    const slugInput = document.getElementById("id_slug");
+    const slugMessage = document.getElementById("slug-message");
+    const articleIdInput = document.getElementById("article-id"); // Ensure these exist in your HTML or handle nulls
+    const modelNameInput = document.getElementById("model-name");
 
-        const objectId = articleIdInput ? articleIdInput.value : "";
-        const modelName = modelNameInput ? modelNameInput.value : "article";
-        
-        let debounceTimer;
-        let slugTouched = false;
+    if (!titleInput || !slugInput) return;
 
-        slugInput.addEventListener("input", () => slugTouched = true);
+    const objectId = articleIdInput ? articleIdInput.value : "";
+    const modelName = modelNameInput ? modelNameInput.value : "article";
+    
+    let debounceTimer;
+    let slugManuallyEdited = false;
 
-        titleInput.addEventListener("input", function () {
-            if (!slugTouched) slugInput.value = slugify(titleInput.value);
+    // Helper function to create slug (if you don't have one globally)
+    function slugify(text) {
+        return text.toString().toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
+    }
 
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-                const title = titleInput.value.trim();
-                if (!title) {
-                    slugInput.value = "";
-                    if (slugMessage) slugMessage.textContent = "";
+    // Function to check slug availability via AJAX
+    function checkSlugAvailability(slug) {
+        if (!slug) {
+            if (slugMessage) slugMessage.textContent = "";
+            return;
+        }
+
+        fetch(`/ajax/check-slug/${modelName}/?slug=${encodeURIComponent(slug)}&object_id=${objectId}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    if (slugMessage) {
+                        slugMessage.textContent = `⚠️ ${data.error}`;
+                        slugMessage.style.color = "#f59e0b";
+                    }
                     return;
                 }
+                
+                if (slugMessage) {
+                    if (data.exists) {
+                        slugMessage.textContent = `❌ Slug already in use`;
+                        slugMessage.style.color = "#dc2626";
+                    } else {
+                        slugMessage.textContent = `✅ Slug available`;
+                        slugMessage.style.color = "#16a34a";
+                    }
+                }
+            })
+            .catch(err => console.error("Slug check failed:", err));
+    }
 
-                fetch(`/ajax/check-slug/${modelName}/?title=${encodeURIComponent(title)}&object_id=${objectId}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.error) {
-                            if (slugMessage) {
-                                slugMessage.textContent = `⚠️ ${data.error}`;
-                                slugMessage.style.color = "#f59e0b";
-                            }
-                            return;
-                        }
-                        slugInput.value = data.slug;
-                        if (slugMessage) {
-                            if (data.exists) {
-                                slugMessage.textContent = `❌ Title exists (slug adjusted)`;
-                                slugMessage.style.color = "#dc2626";
-                            } else {
-                                slugMessage.textContent = "✅ Slug available";
-                                slugMessage.style.color = "#16a34a";
-                            }
-                        }
-                    })
-                    .catch(err => console.error("Slug check failed:", err));
-            }, 400);
-        });
-    })();
+    // When slug field is manually edited
+    slugInput.addEventListener("input", function () {
+        const slug = slugInput.value.trim();
+
+        // FIX: If the user clears the slug, reset the flag so Title can generate it again
+        if (slug === "") {
+            slugManuallyEdited = false;
+            if (slugMessage) slugMessage.textContent = ""; // Clear message
+        } else {
+            slugManuallyEdited = true;
+        }
+        
+        clearTimeout(debounceTimer);
+
+        debounceTimer = setTimeout(() => {
+            if (!slug) return;
+            checkSlugAvailability(slug);
+        }, 400);
+    });
+
+    // When title changes - auto-generate slug and check availability
+    titleInput.addEventListener("input", function () {
+        clearTimeout(debounceTimer);
+        
+        // Auto-fill slug from title if not manually edited
+        if (!slugManuallyEdited) {
+            slugInput.value = slugify(titleInput.value);
+        }
+
+        debounceTimer = setTimeout(() => {
+            const slug = slugInput.value.trim();
+            
+            if (!slug) {
+                if (slugMessage) slugMessage.textContent = "";
+                return;
+            }
+
+            // Check availability of the current slug
+            checkSlugAvailability(slug);
+        }, 400);
+    });
+
+    // Validate on blur
+    slugInput.addEventListener("blur", function () {
+        const slug = slugInput.value.trim();
+        if (slug) {
+            checkSlugAvailability(slug);
+        }
+    });
+})();
 
     /* 6. Bulk Selection */
     
 
-    /* 7. Sortable (Drag & Drop) */
-    (function initSortable() {
-        const el = document.getElementById('sortable-tbody');
-        if (!el || typeof Sortable === 'undefined') return;
 
-        const updateUrl = el.dataset.updateUrl;
-        
-        Sortable.create(el, {
-            handle: '.drag-handle',
-            animation: 150,
-            onEnd: function() {
-                if (!updateUrl) return;
-                const order = Array.from(el.querySelectorAll('tr'))
-                    .map(row => parseInt(row.getAttribute('data-id')))
-                    .filter(n => !isNaN(n));
+/* 7. Sortable (Drag & Drop) */
+        window.initSortable = function() {
+            const el = document.getElementById('sortable-tbody');
+            if (!el || typeof Sortable === 'undefined') return;
 
-                fetch(updateUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': getCSRFToken(),
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    body: JSON.stringify({ order: order })
-                }).then(res => res.json())
-                  .then(data => console.log('Order update:', data.status));
+            // Destroy existing instance if it exists
+            if (el.sortableInstance) {
+                el.sortableInstance.destroy();
             }
-        });
-    })();
+
+            const updateUrl = el.dataset.updateUrl;
+            
+            el.sortableInstance = Sortable.create(el, {
+                handle: '.drag-handle',
+                animation: 150,
+                onEnd: function() {
+                    if (!updateUrl) return;
+                    const order = Array.from(el.querySelectorAll('tr'))
+                        .map(row => parseInt(row.getAttribute('data-id')))
+                        .filter(n => !isNaN(n));
+
+                    fetch(updateUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCSRFToken(),
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify({ order: order })
+                    }).then(res => res.json())
+                    .then(data => console.log('Order update:', data.status));
+                }
+            });
+        };
+
+        // Initialize on page load
+        window.initSortable();
 
     /* 8. Search & Pagination Handling */
     (function initSearch() {
@@ -472,7 +538,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })();
 
-    /* 11. Character Counters */
+
+/* 11. Character Counters */
     Object.keys(CONFIG.limits).forEach(fieldId => {
         const inputField = document.getElementById(fieldId);
         if (!inputField) return;
@@ -489,10 +556,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxChars = CONFIG.limits[fieldId];
 
         function updateCounter() {
-            const remaining = maxChars - inputField.value.length;
-            counter.textContent = remaining >= 0 ? remaining : 0;
-            if (inputField.value.length > maxChars) {
+            const currentLength = inputField.value.length;
+            const remaining = maxChars - currentLength;
+            
+            // Hard limit: truncate if exceeded
+            if (currentLength > maxChars) {
                 inputField.value = inputField.value.substring(0, maxChars);
+                counter.textContent = "Limit reached";
+                counter.style.color = "#dc2626"; // Red color
+                counter.style.fontWeight = "bold";
+                return;
+            }
+            
+            // Change color and text based on remaining characters
+            if (remaining === 0) {
+                counter.textContent = "Limit reached";
+                counter.style.color = "#dc2626"; // Red
+                counter.style.fontWeight = "bold";
+            } else if (remaining <= 10) {
+                counter.textContent = remaining + " characters remaining";
+                counter.style.color = "#f59e0b"; // Orange/amber warning
+                counter.style.fontWeight = "bold";
+            } else {
+                counter.textContent = remaining + " characters remaining";
+                counter.style.color = "#6b7280"; // Default gray
+                counter.style.fontWeight = "normal";
             }
         }
         

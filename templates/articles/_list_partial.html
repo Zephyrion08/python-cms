@@ -11,7 +11,6 @@
                 <th><input type="checkbox" id="select-all"></th>
                 <th>Title</th>
                 <th>Status</th>
-                <th>Homepage</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -30,13 +29,6 @@
                     {{ a.is_active|yesno:"Active,Inactive" }}
                 </td>
 
-                <td>
-                    {% if a.show_on_homepage %}
-                        <span class="badge badge-green">Yes</span>
-                    {% else %}
-                        <span class="badge badge-gray">No</span>
-                    {% endif %}
-                </td>
 
                 <td class="actions">
                     <span class="status-toggle"

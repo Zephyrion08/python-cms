@@ -13,7 +13,7 @@ class Article(models.Model):
     slug = models.SlugField(unique=True, blank=True)
 
     image = models.ImageField(upload_to='articles/', blank=True, null=True)
-    content = RichTextUploadingField(blank=True)
+    content = RichTextUploadingField(blank=False)
     show_on_homepage = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
    

@@ -204,6 +204,7 @@ def update_order(request, model_name):
         return JsonResponse({'status': 'error', 'message': 'Failed to update order'}, status=500)
     
 
+    
 @ratelimit(key='user', rate='30/m', method='GET')
 @login_required
 def ajax_check_slug(request, model_name):
@@ -223,29 +224,30 @@ def ajax_check_slug(request, model_name):
             "exists": False
         }, status=400)
     
-    title = request.GET.get("title", "").strip()
+    # Get slug directly from request (not title)
+    slug = request.GET.get("slug", "").strip()
     object_id = request.GET.get("object_id", "").strip()
     
     # Validate inputs
-    if not title:
+    if not slug:
         return JsonResponse({
-            "error": "Title is required",
+            "error": "Slug is required",
             "slug": "",
             "exists": False
         }, status=400)
     
-    # Generate slug
+    # Slugify the input to ensure it's valid
     from django.utils.text import slugify
-    slug = slugify(title)
+    slug = slugify(slug)
     
     if not slug:
         return JsonResponse({
-            "error": "Could not generate valid slug from title",
+            "error": "Invalid slug format",
             "slug": "",
             "exists": False
         }, status=400)
     
-    # Check if slug exists
+    # Check if slug exists in database
     qs = model_class.objects.filter(slug=slug)
     
     # Exclude current object if editing

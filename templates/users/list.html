@@ -28,7 +28,7 @@
 
                 {% if not u.is_superuser and u != request.user %}
                     <button class="delete" 
-                            onclick="openDeleteModal('{{ u.username }}', '{% url 'user_delete' u.id %}')"
+                            onclick="openDeleteModal('user', '{{ u.username }}', '{% url 'delete_object' 'user' u.id %}',false)"
                             style="background:none;border:none;color:#ef4444;cursor:pointer;padding:0;">
                         Delete
                     </button>

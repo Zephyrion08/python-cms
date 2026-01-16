@@ -1,4 +1,3 @@
-// AJAX pagination & search for articles list
 (function () {
     let ajaxController = null;
     const container = document.getElementById('articles-list-container');
@@ -43,7 +42,15 @@
             }
 
             if (!res.ok) throw new Error('Network error');
+            
+            // 1. Update DOM
             container.innerHTML = html;
+            
+            // 2. Re-initialize Sortable immediately after DOM update
+            if (typeof window.initSortable === 'function') {
+                window.initSortable();
+            }
+
             if (push) history.pushState(null, '', url);
         } catch (err) {
             if (err.name !== 'AbortError') console.error('AJAX fetch failed', err);

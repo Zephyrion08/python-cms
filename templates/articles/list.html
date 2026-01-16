@@ -16,7 +16,7 @@
 
             <select name="homepage" style="padding:5px 10px;">
                 <option value="no" {% if request.GET.homepage == 'no' or not request.GET.homepage %}selected{% endif %}>
-                    Not Homepage
+                    Inner Page
                 </option>
                 <option value="yes" {% if request.GET.homepage == 'yes' %}selected{% endif %}>
                     Homepage
@@ -78,6 +78,7 @@
 {# Include AJAX helper for pagination/search (progressive enhancement) #}
 {% load static %}
 <script src="{% static 'js/articles-ajax.js' %}"></script>
+
 
 
 
