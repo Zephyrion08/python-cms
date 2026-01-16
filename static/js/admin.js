@@ -175,6 +175,15 @@ document.addEventListener('DOMContentLoaded', function() {
             main.classList.toggle("collapsed");
         });
     }
+    const homepageForm = document.getElementById('homepage-filter-form');
+        if (homepageForm) {
+            const homepageSelect = homepageForm.querySelector('select[name="homepage"]');
+            if (homepageSelect) {
+                homepageSelect.addEventListener('change', function() {
+                    homepageForm.submit();
+                });
+            }
+        }
 
     /* 2. Modal Outside Click Closer */
     window.onclick = function(event) {
@@ -195,13 +204,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* 4. Image Preview & Validation */
     (function initImagePreview() {
-        const imageInput = document.querySelector('input[type="file"]');
+        const imageInput = document.querySelector('input[type="file"][name="image"]');
         const imagePreview = document.getElementById('imagePreview');
         const removeInput = document.getElementById('remove_image');
         
         if (!imageInput || !imagePreview) return;
 
         const imageLabel = imageInput.previousElementSibling;
+        
+        // Check if there's an existing image URL in the data attribute
+        const existingImageUrl = imageInput.dataset.existingImage;
 
         function toggleInputVisibility(show) {
             if (show) {
@@ -217,11 +229,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        function renderPreview(src) {
+        function renderPreview(src, isExisting = false) {
+            const label = isExisting ? 'Current image' : 'New image selected';
             imagePreview.innerHTML = `
-                <div class="preview-wrapper" style="position:relative; display:inline-block;">
-                    <img src="${src}" style="max-width:200px; max-height:150px; border:1px solid #e5e7eb; border-radius:4px;">
-                    <span class="remove-image" style="position:absolute; top:-5px; right:-5px; background:#ef4444; color:white; border-radius:50%; width:20px; height:20px; text-align:center; line-height:20px; cursor:pointer; font-weight:bold;">×</span>
+                <div class="preview-wrapper" style="position:relative; display:inline-block; margin-top: 10px;">
+                    <img src="${src}" style="max-width:300px; max-height:200px; border:1px solid #e5e7eb; border-radius:4px; display: block;">
+                    <span class="remove-image" style="position:absolute; top:-8px; right:-8px; background:#ef4444; color:white; border-radius:50%; width:24px; height:24px; text-align:center; line-height:24px; cursor:pointer; font-weight:bold; font-size: 16px;">×</span>
+                    <p style="margin-top: 5px; font-size: 12px; color: #666;">${label}</p>
                 </div>`;
             toggleInputVisibility(false);
         }
@@ -231,20 +245,22 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target.closest('.remove-image')) {
                 e.preventDefault();
                 removeInput.value = '1';
-                imagePreview.innerHTML = '<p class="no-image">No image selected</p>';
+                imagePreview.innerHTML = '<p class="no-image text-muted">No image selected</p>';
                 imageInput.value = '';
+                // Remove the data attribute so it doesn't show again
+                imageInput.removeAttribute('data-existing-image');
                 toggleInputVisibility(true);
             }
         });
 
-        // Event: Upload Image
+        // Event: Upload New Image
         imageInput.addEventListener('change', function() {
             const file = this.files[0];
             if (!file) return;
 
             // Validations
             if (file.size > CONFIG.images.maxSize) {
-                alert(`File too large! Max size: 5MB.`);
+                alert(`File too large! Max size: 5MB. Your file is ${(file.size / (1024 * 1024)).toFixed(1)}MB`);
                 this.value = '';
                 return;
             }
@@ -257,12 +273,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // Success -> Show Preview
             removeInput.value = '0';
             const reader = new FileReader();
-            reader.onload = (e) => renderPreview(e.target.result);
+            reader.onload = (e) => renderPreview(e.target.result, false);
             reader.readAsDataURL(file);
         });
 
-        // Initial State Check
-        if (imagePreview.querySelector('img')) {
+        // Initial State: Show existing image if present
+        if (existingImageUrl) {
+            renderPreview(existingImageUrl, true);
+        } else if (imagePreview.querySelector('img')) {
+            // If there's already an img tag in the preview (server-rendered)
             toggleInputVisibility(false);
         }
     })();
@@ -324,12 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })();
 
     /* 6. Bulk Selection */
-    const selectAll = document.getElementById('select-all');
-    if (selectAll) {
-        selectAll.addEventListener('change', function () {
-            document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = this.checked);
-        });
-    }
+    
 
     /* 7. Sortable (Drag & Drop) */
     (function initSortable() {
@@ -488,17 +502,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* 12. URL Parameter Cleanup */
     (function cleanupURL() {
-        // Only run this if we are on a page with the article search bar
         const isArticleListPage = document.getElementById('article-search');
         if (!isArticleListPage) return;
 
         const url = new URL(window.location);
         let changed = false;
 
-        if (!url.searchParams.has("homepage")) {
+        // Set default homepage to 'no' ONLY if completely missing
+        const homepageParam = url.searchParams.get("homepage");
+        if (!homepageParam || homepageParam === "") {
             url.searchParams.set("homepage", "no");
             changed = true;
         }
+        
+        // Remove empty search query
         if (url.searchParams.get("q") === "") {
             url.searchParams.delete("q");
             changed = true;
@@ -508,4 +525,27 @@ document.addEventListener('DOMContentLoaded', function() {
             window.history.replaceState({}, "", url);
         }
     })();
+});
+
+document.addEventListener('change', function (e) {
+
+    // Select-all checkbox
+    if (e.target && e.target.id === 'select-all') {
+        const checked = e.target.checked;
+        document.querySelectorAll('.row-checkbox').forEach(cb => {
+            cb.checked = checked;
+        });
+    }
+
+    // Individual row checkbox (keeps select-all in sync)
+    if (e.target && e.target.classList.contains('row-checkbox')) {
+        const all = document.querySelectorAll('.row-checkbox');
+        const checked = document.querySelectorAll('.row-checkbox:checked');
+        const selectAll = document.getElementById('select-all');
+
+        if (!selectAll) return;
+
+        selectAll.checked = all.length === checked.length;
+        selectAll.indeterminate = checked.length > 0 && checked.length < all.length;
+    }
 });

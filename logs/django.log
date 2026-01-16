@@ -1,78 +1,759 @@
-ERROR 2026-01-13 16:18:54,094 log Internal Server Error: /articles/
+WARNING 2026-01-14 12:22:58,702 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:23:06,520 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:23:35,298 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-14 12:28:46,171 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 12:28:50,751 autoreload Watching for file changes with StatReloader
+INFO 2026-01-14 12:28:52,414 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 12:28:53,468 autoreload Watching for file changes with StatReloader
+INFO 2026-01-14 12:28:59,825 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 12:29:00,539 autoreload Watching for file changes with StatReloader
+INFO 2026-01-14 12:29:01,854 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 12:29:02,447 autoreload Watching for file changes with StatReloader
+INFO 2026-01-14 12:29:03,686 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 12:29:04,313 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-14 12:29:07,703 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:29:51,685 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:29:54,676 log Not Found: /robots.txt
+WARNING 2026-01-14 12:29:56,448 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:29:56,456 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:29:57,306 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:33:12,872 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:34:00,348 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:35:04,775 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:35:20,024 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 12:35:29,586 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 13:24:31,927 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 13:25:09,028 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 13:31:55,652 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 13:41:50,698 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:27:51,082 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:27:56,546 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:27:56,740 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:27:56,902 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:28:01,470 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:28:02,976 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-14 15:30:40,524 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 15:30:41,370 autoreload Watching for file changes with StatReloader
+INFO 2026-01-14 15:30:42,611 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 15:30:43,173 autoreload Watching for file changes with StatReloader
+INFO 2026-01-14 15:30:46,468 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 15:30:47,575 autoreload Watching for file changes with StatReloader
+INFO 2026-01-14 15:30:48,987 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-14 15:30:49,575 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-14 15:45:03,765 log Forbidden (Permission denied): /toggle-status/article/109/
 Traceback (most recent call last):
   File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
   File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
-    result = _process_exception(request, e)
-  File "D:\project\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
-    response = view_func(request, *args, **kwargs)
-  File "D:\project\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
-    return view_func(request, *args, **kwargs)
-  File "D:\project\articles\views.py", line 50, in article_list
-    return render(request, 'articles/list.html', {
-        'articles': page_obj,
-        'page_obj': page_obj,
-        'per_page': per_page,
-    })
-  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
-    return engine.get_template(template_name)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
-    return Template(self.engine.get_template(template_name), self)
-                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "D:\project\venv\Lib\site-packages\django\template\engine.py", line 186, in get_template
-    template, origin = self.find_template(template_name)
-                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "D:\project\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
-    template = loader.get_template(name, skip=skip)
-  File "D:\project\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
-    template = super().get_template(template_name, skip)
-  File "D:\project\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
-    return Template(
-        contents,
-    ...<2 lines>...
-        self.engine,
-    )
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 157, in __init__
-    self.nodelist = self.compile_nodelist()
-                    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
-    nodelist = parser.parse()
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 585, in parse
-    raise self.error(token, e)
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 583, in parse
-    compiled_result = compile_func(self, token)
-  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 307, in do_extends
-    nodelist = parser.parse()
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 585, in parse
-    raise self.error(token, e)
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 583, in parse
-    compiled_result = compile_func(self, token)
-  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 235, in do_block
-    nodelist = parser.parse(("endblock",))
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 585, in parse
-    raise self.error(token, e)
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 583, in parse
-    compiled_result = compile_func(self, token)
-  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 893, in do_for
-    sequence = parser.compile_filter(bits[in_index + 1])
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 676, in compile_filter
-    return FilterExpression(token, self)
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 771, in __init__
-    filter_func = parser.find_filter(filter_name)
-  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 682, in find_filter
-    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
-django.template.exceptions.TemplateSyntaxError: Template: D:\project\templates\articles\list.html, Invalid filter: 'split'
-WARNING 2026-01-13 16:24:05,406 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-13 16:24:24,981 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-13 16:25:16,323 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-13 16:25:16,781 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-13 16:25:16,931 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-13 16:25:45,480 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-13 16:25:48,177 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:03,925 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:04,249 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:04,573 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:04,835 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:04,973 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:05,138 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:05,283 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:05,415 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:05,550 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:05,700 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:05,816 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:06,038 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:07,057 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:07,242 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:07,404 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:08,275 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:08,655 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:12,004 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:12,127 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:12,258 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:12,423 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:13,856 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:14,443 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:14,592 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:14,812 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:17,463 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:45:29,198 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:45:39,918 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:40,061 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:40,211 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:40,354 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:40,511 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:40,742 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:46,315 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:47,452 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:47,628 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:47,779 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:47,945 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:48,081 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:48,227 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:48,381 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:48,542 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:48,767 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:49,661 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:45:51,030 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 15:45:52,963 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:45:56,064 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:46:10,282 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:46:13,287 log Not Found: /robots.txt
+WARNING 2026-01-14 15:46:15,077 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:46:15,090 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 15:46:15,993 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-14 17:04:04,174 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:04:04,342 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:04:04,482 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:04:04,654 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:04:04,807 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:04:04,946 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:04:05,117 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:04:05,339 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:05:08,052 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:05:08,209 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:05:08,354 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-14 17:05:08,583 log Forbidden (Permission denied): /toggle-status/article/109/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+INFO 2026-01-16 10:30:32,432 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-16 10:30:36,590 log Not Found: /favicon.ico
+WARNING 2026-01-16 10:31:14,545 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:15,542 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:15,692 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:15,860 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:16,017 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:16,181 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:16,340 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:16,495 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:16,641 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:16,808 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:16,944 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:17,863 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:18,176 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:18,349 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:18,513 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:18,743 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:20,158 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:20,303 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:20,444 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:20,592 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:20,759 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:21,007 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+WARNING 2026-01-16 10:31:21,229 log Forbidden (Permission denied): /toggle-status/article/1/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
+    raise (import_string(cls) if isinstance(cls, str) else cls)()
+django_ratelimit.exceptions.Ratelimited
+INFO 2026-01-16 10:45:55,392 autoreload Watching for file changes with StatReloader
+INFO 2026-01-16 10:46:54,221 autoreload Watching for file changes with StatReloader
+INFO 2026-01-16 10:54:19,091 autoreload Watching for file changes with StatReloader
