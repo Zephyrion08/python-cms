@@ -25,8 +25,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
 # Install Django 6.0 and dependencies
-pip install django==6.0
-# pip install -r requirements.txt # Uncomment if you have a requirements file
+pip install -r requirements.txt
 
 # Initialize the database and create admin access
 python manage.py migrate
