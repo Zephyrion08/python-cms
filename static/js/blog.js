@@ -1,0 +1,64 @@
+$(document).ready(function() {
+    // 1. Get CSRF Token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+
+    // 2. Initialize DataTable
+    // We disable pagination and ordering so SortableJS has full control
+    const table = $('#listTable').DataTable({
+        paging: true,
+        ordering: false,
+        pageLength: 10,
+        columnDefs: [
+            { targets: 0, visible: false } // Hide the ID/Position column
+        ]
+    });
+
+
+
+    // 3. Initialize SortableJS on the tbody
+    const el = document.querySelector('#listTable tbody');
+    const sortUrl = $('#listTable').data('sort-url');
+    Sortable.create(el, {
+        handle: '.drag-handle', // <--- This restricts drag to the handle
+        animation: 200,         // Smooth sliding animation (ms)
+        ghostClass: 'sortable-ghost',
+        onEnd: function () {
+            let newOrder = [];
+            
+            // Loop through all rows in current DOM order to get their data-ids
+            $('#listTable tbody tr').each(function() {
+                const id = $(this).data('id');
+                if(id) newOrder.push(id);
+            });
+
+            // 4. Send the new ID list to the server
+            $.ajax({
+                url: sortUrl,
+                method: "POST",
+                headers: { "X-CSRFToken": csrftoken },
+                contentType: "application/json",
+                data: JSON.stringify({ order: newOrder }),
+                success: function() {
+                    $('#saveMsg').fadeIn().delay(800).fadeOut();
+                },
+                error: function() {
+                    alert('Save failed. Please refresh and try again.');
+                }
+            });
+        }
+    });
+});

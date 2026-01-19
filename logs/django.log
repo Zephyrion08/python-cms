@@ -840,3 +840,761 @@ WARNING 2026-01-19 12:56:47,689 log Not Found: /.well-known/appspecific/com.chro
 WARNING 2026-01-19 12:56:48,185 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2026-01-19 12:56:48,714 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2026-01-19 12:56:49,340 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 13:01:18,789 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 13:01:20,546 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:02:00,629 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:02:04,310 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:02:16,081 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:02:21,489 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:04:01,331 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:10:43,358 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:10:49,686 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:10:53,422 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:11:39,296 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:12:51,688 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:12:56,770 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:13:00,944 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:13:05,598 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:13:10,297 log Not Found: /blog/{% url 'sort' 'article' %}
+WARNING 2026-01-19 13:21:30,144 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:21:36,055 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:21:40,778 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:06,972 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:10,144 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:13,738 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:16,408 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:22,092 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:46,939 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:48,957 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 13:22:54,199 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:06:54,143 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:06:56,860 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:07:45,633 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:07:46,394 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:07:47,658 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:07:48,238 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:07:49,390 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:07:49,950 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:07:51,199 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:07:51,857 autoreload Watching for file changes with StatReloader
+ERROR 2026-01-19 15:07:52,277 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 22, in blog_list
+    articles = Article.objects.filter(is_homepage=current_filter).order_by('position')
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1551, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1358, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_homepage' into field. Choices are: author, author_id, content, created_at, id, image, is_active, meta_description, meta_keywords, meta_title, position, show_on_homepage, slug, subtitle, title, updated_at
+WARNING 2026-01-19 15:07:52,313 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:08:28,437 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:08:29,097 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:08:30,674 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:08:34,738 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:08:40,550 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:12:24,219 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:12:27,202 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:12:31,933 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:12:33,784 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:12:36,525 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:12:38,704 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:13:23,182 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:13:25,737 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:13:40,623 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:13:41,327 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:13:42,929 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:13:46,085 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:14:22,158 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:14:25,419 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:14:28,078 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:14:34,157 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:14:34,860 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:14:36,169 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:14:36,899 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:14:37,184 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:14:40,073 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:14:42,105 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:14:44,596 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:25,130 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:27,968 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:35,240 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:41,934 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:47,365 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:49,960 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:51,490 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:54,779 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:55,396 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:56,007 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:15:58,262 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:16:00,111 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:16:02,053 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:17:07,023 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:17:08,910 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-19 15:17:11,345 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 22, in blog_list
+    articles = Article.objects.filter(show_on_homepage=current_filter).order_by('position')
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1440, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 35, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 391, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 93, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1189, in get_prep_value
+    return self.to_python(value)
+           ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1179, in to_python
+    raise exceptions.ValidationError(
+    ...<3 lines>...
+    )
+django.core.exceptions.ValidationError: ['“yes” value must be either True or False.']
+WARNING 2026-01-19 15:17:11,411 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-19 15:17:47,717 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 22, in blog_list
+    articles = Article.objects.filter(show_on_homepage=current_filter).order_by('position')
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1440, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 35, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 391, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 93, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1189, in get_prep_value
+    return self.to_python(value)
+           ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1179, in to_python
+    raise exceptions.ValidationError(
+    ...<3 lines>...
+    )
+django.core.exceptions.ValidationError: ['“yes” value must be either True or False.']
+WARNING 2026-01-19 15:17:47,761 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-19 15:17:53,377 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 22, in blog_list
+    articles = Article.objects.filter(show_on_homepage=current_filter).order_by('position')
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1440, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 35, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 391, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 93, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1189, in get_prep_value
+    return self.to_python(value)
+           ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1179, in to_python
+    raise exceptions.ValidationError(
+    ...<3 lines>...
+    )
+django.core.exceptions.ValidationError: ['“yes” value must be either True or False.']
+WARNING 2026-01-19 15:17:53,411 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:17:54,813 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:17:54,855 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-19 15:17:56,333 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 22, in blog_list
+    articles = Article.objects.filter(show_on_homepage=current_filter).order_by('position')
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1671, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1703, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\project\venv\Lib\site-packages\django\db\models\sql\query.py", line 1440, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 35, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 391, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\lookups.py", line 93, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1189, in get_prep_value
+    return self.to_python(value)
+           ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1179, in to_python
+    raise exceptions.ValidationError(
+    ...<3 lines>...
+    )
+django.core.exceptions.ValidationError: ['“yes” value must be either True or False.']
+WARNING 2026-01-19 15:17:56,371 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:18:49,889 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:18:50,517 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:18:52,223 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:18:55,368 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:19:01,614 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:19:25,182 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:19:25,806 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:19:26,957 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:19:27,746 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:19:33,109 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:19:33,755 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:19:38,339 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:19:38,984 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:19:43,239 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:19:43,938 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:19:57,973 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:20:00,590 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:21:28,306 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:21:28,939 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:21:31,100 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:21:31,651 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:21:40,016 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:21:40,607 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:21:46,915 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:21:47,526 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:21:54,704 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:21:55,357 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:21:56,586 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:21:57,179 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:21:58,417 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:21:59,096 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:22:06,402 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:22:07,004 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:22:10,274 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:22:10,824 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:22:11,974 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:22:12,632 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:22:13,891 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:22:14,552 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:22:16,093 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:22:18,910 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:22:21,386 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:22:22,652 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:08,590 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:14,986 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:20,169 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:21,986 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:23,549 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:25,147 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:26,859 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:23:28,363 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:09,158 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:22,334 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:22,368 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:27,175 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:30,472 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:34,881 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:37,005 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:24:38,733 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:26:59,843 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:00,874 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:02,082 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:02,748 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:03,937 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:04,472 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:05,744 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:06,332 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:07,517 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:08,251 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:22,544 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:23,098 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:25,301 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:25,863 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:28,064 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:28,582 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:44,891 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:45,478 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:27:48,676 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:27:49,231 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:06,623 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:07,399 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:09,625 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:10,223 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:11,416 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:12,248 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:13,451 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:14,047 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:15,224 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:15,856 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:17,034 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:17,653 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:25,978 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:26,541 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:27,729 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:28,412 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:29,647 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:30,364 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:31,597 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:32,301 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:33,579 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:34,416 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:35,593 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:36,321 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:37,496 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:38,089 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:28:39,273 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:28:39,980 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:29:15,695 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:33:10,317 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:33:10,994 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:33:12,285 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:33:12,876 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:33:24,257 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:33:24,900 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:33:54,122 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:34:24,826 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:25,405 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:27,676 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:28,310 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:29,555 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:30,294 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:33,624 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:34,298 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:35,447 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:36,155 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:40,429 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:41,199 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:42,450 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:43,144 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:44,467 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:45,046 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:34:47,281 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:34:47,924 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:34:53,670 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:35:13,501 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:35:14,193 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:35:15,473 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:35:16,066 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:35:22,379 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:35:23,001 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:35:25,286 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:35:25,885 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:35:30,158 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:35:33,239 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:35:46,734 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:35:47,527 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:35:48,777 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 15:35:49,596 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:36:00,722 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:36:01,491 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:36:01,686 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-19 15:36:06,274 log Internal Server Error: /blog/create/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 45, in create_blog
+    return render(request, 'form.html', {'form': form})
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: form.html
+WARNING 2026-01-19 15:36:06,316 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:36:23,352 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:36:24,047 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:36:25,346 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:36:26,121 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:36:26,733 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:38:18,961 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:38:20,662 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:38:23,952 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:38:53,886 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:38:54,471 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:38:59,776 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:39:00,398 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:39:43,117 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:39:43,824 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:39:55,682 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:39:57,194 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:39:59,841 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:41:30,332 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:41:31,030 autoreload Watching for file changes with StatReloader
+ERROR 2026-01-19 15:42:14,368 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 24, in blog_list
+    return render(request, 'blog/list.html', {
+        'list': articles,
+        'current_filter': current_filter
+    })
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\project\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\project\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'blog_create' not found. 'blog_create' is not a valid view function or pattern name.
+WARNING 2026-01-19 15:42:14,417 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:42:51,047 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:42:54,683 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:43:02,709 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:43:31,497 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:43:32,131 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:44:52,181 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:44:53,156 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:44:55,355 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:44:55,949 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:45:00,232 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:45:00,899 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:45:03,153 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:45:03,921 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:45:05,187 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 15:45:05,824 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:45:28,258 autoreload D:\project\blog\forms.py changed, reloading.
+INFO 2026-01-19 15:45:28,846 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:45:30,089 autoreload D:\project\blog\forms.py changed, reloading.
+INFO 2026-01-19 15:45:30,758 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:45:50,426 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:46:01,810 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:46:04,254 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:46:18,248 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:46:19,105 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:46:22,424 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:46:23,195 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:46:25,341 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:46:26,158 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:46:31,491 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:46:32,313 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:46:35,567 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:46:36,301 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:46:39,608 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:46:40,429 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:46:41,742 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:46:42,335 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:47:15,117 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:47:28,405 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:47:34,551 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:47:39,762 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:47:42,246 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:47:49,374 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:47:52,686 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:47:56,967 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:48:28,751 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:48:36,674 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:48:43,843 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:48:56,732 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:49:37,505 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:49:38,348 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:49:41,690 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:49:42,249 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:49:54,132 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:50:54,527 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:50:57,077 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:53:23,671 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:53:24,399 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:53:25,635 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:53:26,206 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:53:38,537 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:53:39,151 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:53:43,404 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:53:44,017 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:54:08,429 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:54:09,202 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:54:12,454 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:54:13,101 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:54:15,335 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:54:16,004 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:54:19,304 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:54:19,916 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:54:22,172 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:54:22,881 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:54:24,168 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:54:24,867 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:55:13,592 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 15:55:14,167 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:55:59,826 autoreload D:\project\blog\forms.py changed, reloading.
+INFO 2026-01-19 15:56:00,473 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:56:01,715 autoreload D:\project\blog\forms.py changed, reloading.
+INFO 2026-01-19 15:56:02,439 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 15:57:34,892 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:57:37,316 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:57:39,664 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:57:42,307 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:57:44,196 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:57:46,200 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:57:59,459 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:58:03,908 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:58:07,399 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:58:09,881 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:58:14,421 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:58:17,090 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:59:13,992 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 15:59:24,848 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 15:59:46,000 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 15:59:46,566 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:59:47,825 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 15:59:48,509 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:59:49,624 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 15:59:50,579 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:59:52,708 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 15:59:53,336 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:59:54,514 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 15:59:55,154 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 15:59:56,258 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 15:59:56,802 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:00:04,964 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 16:00:05,750 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:00:06,862 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 16:00:07,578 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:00:08,815 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 16:00:09,393 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:00:11,512 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 16:00:12,216 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:00:13,358 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 16:00:14,020 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:00:15,154 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 16:00:15,679 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 16:00:24,182 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:00:41,510 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:00:56,398 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:01:35,475 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:01:43,512 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:02:37,467 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:02:41,840 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:02:44,827 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:02:46,718 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:02:51,092 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:02:55,189 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 16:07:19,300 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 16:07:19,982 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:07:30,354 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 16:07:31,011 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:07:32,255 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 16:07:32,994 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 16:07:33,871 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:07:38,516 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:17:53,821 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 16:21:00,495 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 16:21:01,238 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:21:04,431 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 16:21:05,092 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:21:09,383 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 16:21:10,007 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:21:13,275 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 16:21:13,947 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:21:15,182 autoreload D:\project\blog\models.py changed, reloading.
+INFO 2026-01-19 16:21:15,741 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:21:33,733 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:21:39,093 autoreload D:\project\blog\forms.py changed, reloading.
+INFO 2026-01-19 16:21:39,730 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 16:21:50,900 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 16:21:54,161 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:21:57,257 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:22:01,018 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:22:06,846 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:22:12,201 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:23:16,161 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 16:24:06,774 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 16:28:01,451 autoreload Watching for file changes with StatReloader

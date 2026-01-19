@@ -12,6 +12,7 @@ from django.contrib import messages
 from django_ratelimit.decorators import ratelimit
 
 from articles.models import Article
+from blog.models import Blog
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
@@ -22,6 +23,7 @@ logger = logging.getLogger(__name__)
 MODEL_MAP = {
     "article": Article,
     "user": User,
+    "blog": Blog,
 }
 
 def redirect_back(request, default='/'):
