@@ -1,902 +1,842 @@
-WARNING 2026-01-14 12:22:58,702 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:23:06,520 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:23:35,298 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-INFO 2026-01-14 12:28:46,171 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 12:28:50,751 autoreload Watching for file changes with StatReloader
-INFO 2026-01-14 12:28:52,414 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 12:28:53,468 autoreload Watching for file changes with StatReloader
-INFO 2026-01-14 12:28:59,825 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 12:29:00,539 autoreload Watching for file changes with StatReloader
-INFO 2026-01-14 12:29:01,854 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 12:29:02,447 autoreload Watching for file changes with StatReloader
-INFO 2026-01-14 12:29:03,686 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 12:29:04,313 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-14 12:29:07,703 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:29:51,685 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:29:54,676 log Not Found: /robots.txt
-WARNING 2026-01-14 12:29:56,448 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:29:56,456 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:29:57,306 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:33:12,872 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:34:00,348 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:35:04,775 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:35:20,024 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 12:35:29,586 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 13:24:31,927 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 13:25:09,028 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 13:31:55,652 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 13:41:50,698 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:27:51,082 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:27:56,546 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:27:56,740 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:27:56,902 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:28:01,470 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:28:02,976 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-INFO 2026-01-14 15:30:40,524 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 15:30:41,370 autoreload Watching for file changes with StatReloader
-INFO 2026-01-14 15:30:42,611 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 15:30:43,173 autoreload Watching for file changes with StatReloader
-INFO 2026-01-14 15:30:46,468 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 15:30:47,575 autoreload Watching for file changes with StatReloader
-INFO 2026-01-14 15:30:48,987 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-14 15:30:49,575 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-14 15:45:03,765 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:03,925 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:04,249 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:04,573 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:04,835 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:04,973 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:05,138 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:05,283 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:05,415 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:05,550 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:05,700 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:05,816 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:06,038 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:07,057 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:07,242 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:07,404 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:08,275 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:08,655 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:12,004 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:12,127 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:12,258 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:12,423 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:13,856 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:14,443 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:14,592 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:14,812 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:17,463 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:45:29,198 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:45:39,918 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:40,061 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:40,211 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:40,354 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:40,511 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:40,742 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:46,315 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:47,452 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:47,628 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:47,779 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:47,945 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:48,081 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:48,227 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:48,381 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:48,542 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:48,767 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:49,661 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:45:51,030 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 15:45:52,963 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:45:56,064 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:46:10,282 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:46:13,287 log Not Found: /robots.txt
-WARNING 2026-01-14 15:46:15,077 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:46:15,090 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 15:46:15,993 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-14 17:04:04,174 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:04:04,342 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:04:04,482 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:04:04,654 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:04:04,807 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:04:04,946 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:04:05,117 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:04:05,339 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:05:08,052 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:05:08,209 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:05:08,354 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-14 17:05:08,583 log Forbidden (Permission denied): /toggle-status/article/109/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-INFO 2026-01-16 10:30:32,432 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 10:30:36,590 log Not Found: /favicon.ico
-WARNING 2026-01-16 10:31:14,545 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:15,542 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:15,692 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:15,860 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:16,017 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:16,181 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:16,340 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:16,495 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:16,641 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:16,808 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:16,944 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:17,863 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:18,176 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:18,349 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:18,513 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:18,743 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:20,158 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:20,303 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:20,444 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:20,592 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:20,759 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:21,007 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-WARNING 2026-01-16 10:31:21,229 log Forbidden (Permission denied): /toggle-status/article/1/
-Traceback (most recent call last):
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\project\venv\Lib\site-packages\django_ratelimit\decorators.py", line 26, in _wrapped
-    raise (import_string(cls) if isinstance(cls, str) else cls)()
-django_ratelimit.exceptions.Ratelimited
-INFO 2026-01-16 10:45:55,392 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 10:46:54,221 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 10:54:19,091 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 11:26:59,126 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 11:28:30,606 log Not Found: /users/undefined
-WARNING 2026-01-16 11:28:57,865 log Not Found: /users/undefined
-WARNING 2026-01-16 11:39:42,472 log Not Found: /users/false
-INFO 2026-01-16 12:22:51,576 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 12:22:52,484 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 12:24:02,809 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 12:24:03,884 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 12:34:24,415 autoreload D:\project\articles\models.py changed, reloading.
-INFO 2026-01-16 12:34:25,681 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 12:34:27,029 autoreload D:\project\articles\models.py changed, reloading.
-INFO 2026-01-16 12:34:27,938 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 12:41:41,859 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 12:45:32,076 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 12:46:43,642 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 12:50:00,332 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 12:55:12,206 log Not Found: /favicon.ico
-WARNING 2026-01-16 12:55:12,714 log Not Found: /favicon.ico
-WARNING 2026-01-16 12:55:13,247 log Not Found: /favicon.ico
-WARNING 2026-01-16 12:55:13,840 log Not Found: /favicon.ico
-WARNING 2026-01-16 12:58:47,414 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:06:46,381 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:06:49,829 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:06:50,029 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:06:51,788 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:07:10,754 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:07:13,765 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:09:35,650 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:09:40,443 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:09:43,497 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:09:46,521 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:09:51,518 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:10:20,389 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 13:10:24,599 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-INFO 2026-01-16 13:13:47,020 autoreload D:\project\articles\forms.py changed, reloading.
-INFO 2026-01-16 13:13:47,706 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 13:16:45,036 autoreload D:\project\articles\forms.py changed, reloading.
-INFO 2026-01-16 13:16:45,779 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 13:19:38,818 autoreload D:\project\cms\views.py changed, reloading.
-INFO 2026-01-16 13:19:39,510 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 13:20:37,467 autoreload D:\project\cms\views.py changed, reloading.
-INFO 2026-01-16 13:20:38,141 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 13:20:39,374 autoreload D:\project\cms\views.py changed, reloading.
-INFO 2026-01-16 13:20:39,936 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 13:21:28,286 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 14:55:09,282 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 14:55:29,507 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 14:59:55,615 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-INFO 2026-01-16 15:08:58,930 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:09:00,968 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 15:09:03,414 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:09:04,135 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 15:17:13,417 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:17:14,128 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 15:45:33,281 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:47:20,125 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:47:23,657 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:47:28,780 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:47:37,067 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:47:37,371 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:47:37,523 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:47:43,838 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-INFO 2026-01-16 15:48:07,223 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:48:07,937 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 15:48:09,509 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:48:16,027 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:48:25,613 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:48:53,091 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:48:59,225 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-INFO 2026-01-16 15:49:06,814 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:49:07,435 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 15:49:45,381 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:49:49,154 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:49:52,352 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:49:59,167 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:50:02,021 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:50:06,870 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:50:09,724 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:52:48,752 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:52:51,851 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:52:55,711 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:54:24,637 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:54:26,789 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:54:44,160 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:55:00,722 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:26,478 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:29,545 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:36,351 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:40,117 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:44,676 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:47,635 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:53,123 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:56,199 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:56:59,366 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:57:01,750 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:57:08,316 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:57:12,145 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:58:11,756 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:58:14,947 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:58:19,803 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:58:23,880 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:58:27,829 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:58:30,139 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:58:33,761 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:03,453 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:05,634 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:07,687 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:10,379 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:12,105 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:14,344 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:16,806 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:18,794 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:20,618 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:23,928 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:26,678 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:28,477 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:30,814 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:35,417 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 15:59:37,682 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-INFO 2026-01-16 15:59:44,199 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:59:44,834 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 15:59:51,204 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:59:51,859 autoreload Watching for file changes with StatReloader
-INFO 2026-01-16 15:59:59,152 autoreload D:\project\articles\views.py changed, reloading.
-INFO 2026-01-16 15:59:59,852 autoreload Watching for file changes with StatReloader
-WARNING 2026-01-16 16:00:00,606 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:04,534 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:06,341 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:09,313 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:11,282 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:16,379 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:19,881 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:55,897 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:00:59,065 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:01,384 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:03,200 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:26,564 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:29,922 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:31,627 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:34,967 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:42,191 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:44,831 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2026-01-16 16:01:50,089 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:30:30,687 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:30:54,240 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:30:54,797 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:31:17,096 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:36:55,370 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:37:28,911 log Not Found: /articles/true
+WARNING 2026-01-16 16:37:28,960 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:37:34,756 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:37:38,548 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:37:45,097 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:01,664 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:05,522 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:32,280 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:32,530 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:32,729 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:32,894 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:33,029 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:33,525 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:33,592 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:33,745 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:33,852 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:33,963 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:34,070 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:34,162 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:34,274 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:34,385 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:34,875 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:35,067 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:35,298 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:35,478 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:35,674 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:35,862 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:41:43,737 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:42:18,874 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:42:37,700 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:42:46,656 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:47:11,510 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 16:49:31,833 log Not Found: /login/article
+WARNING 2026-01-16 16:49:47,406 log Not Found: /article
+WARNING 2026-01-16 16:56:33,249 log Forbidden (CSRF token from POST incorrect.): /login/
+WARNING 2026-01-16 16:56:41,712 log Forbidden (CSRF token from POST incorrect.): /login/
+WARNING 2026-01-16 17:17:56,560 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:19:18,059 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:21:39,441 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:22:26,413 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:22:29,650 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:23:01,476 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:23:03,870 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:26:28,382 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:26:28,535 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:27:16,639 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:27:23,365 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:27:24,132 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:27:24,358 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:27:24,505 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:27:27,528 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-16 17:28:17,305 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 10:30:17,846 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 10:30:23,242 log Not Found: /favicon.ico
+INFO 2026-01-18 10:30:49,813 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-18 10:30:50,643 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 10:35:13,530 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-18 10:35:14,337 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 10:38:33,775 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:38:40,743 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:39:07,468 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:40:02,219 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:40:14,784 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:40:17,451 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:40:21,194 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:40:24,662 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:41:56,589 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:41:57,493 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:41:58,438 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:42:14,087 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:42:45,523 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:42:46,525 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:43:11,229 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:43:58,887 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:01,417 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:04,559 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:06,134 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:07,648 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:14,630 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:16,793 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:22,908 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:27,278 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:29,081 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:32,277 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:35,160 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:37,138 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:44:39,203 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:45:13,243 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:45:18,193 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:46:14,245 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:46:18,277 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:46:45,739 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:47:08,772 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 10:49:12,471 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:29:18,193 autoreload D:\project\articles\models.py changed, reloading.
+INFO 2026-01-18 11:29:22,232 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:29:26,166 autoreload D:\project\articles\models.py changed, reloading.
+INFO 2026-01-18 11:29:26,938 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:29:31,221 autoreload D:\project\articles\models.py changed, reloading.
+INFO 2026-01-18 11:29:31,862 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:29:39,145 autoreload D:\project\articles\models.py changed, reloading.
+INFO 2026-01-18 11:29:39,796 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:29:52,404 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:30:15,520 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:16,243 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:22,553 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:23,309 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:28,618 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:29,381 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:32,765 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:33,582 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:34,813 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:35,502 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:36,799 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:37,566 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:38,842 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:39,507 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:42,838 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:43,628 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:44,927 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:45,674 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:46,986 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:47,632 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:48,876 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:49,614 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:53,913 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:54,808 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:30:58,087 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:30:58,749 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:00,069 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:00,734 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:04,025 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:04,784 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:06,059 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:06,648 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:07,895 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:08,571 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:09,927 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:10,807 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:12,161 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:12,809 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:31:14,192 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:31:25,298 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:26,088 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:31:27,094 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:31:38,614 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:39,366 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:40,636 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:41,340 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:31:42,426 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 11:31:42,486 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 11:31:46,516 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:31:53,995 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:54,670 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:56,916 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:57,527 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:31:58,793 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:31:59,355 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:32:00,598 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:32:01,200 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:32:02,449 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:32:03,098 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:32:05,348 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:32:05,989 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:32:07,217 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:32:07,780 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:32:11,921 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:32:12,468 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:32:14,181 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:33:24,566 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:33:25,227 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:33:27,351 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:33:27,958 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:33:29,218 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:33:29,845 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:33:32,668 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:33:43,342 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:33:44,098 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:33:44,539 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:33:51,458 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:33:52,233 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:33:53,466 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:33:59,851 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:34:00,983 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:34:02,028 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:34:08,521 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:34:09,290 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:34:09,694 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:35:08,076 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:35:09,161 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:35:10,460 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:35:11,151 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:35:12,395 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:35:12,992 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:35:28,293 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:36:04,042 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:04,828 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:09,113 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:10,146 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:11,477 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:12,247 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:14,578 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:15,277 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:16,623 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:17,616 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:22,959 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:23,703 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:24,967 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:25,622 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:27,916 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:28,811 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:30,058 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:30,658 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:31,909 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:32,784 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:36:34,113 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-18 11:36:35,013 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-18 11:36:35,394 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 11:36:46,045 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 11:37:21,738 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-18 11:37:28,944 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-18 11:50:18,503 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-18 11:50:19,127 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:59:13,974 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-18 11:59:14,721 autoreload Watching for file changes with StatReloader
+INFO 2026-01-18 11:59:19,001 autoreload D:\project\articles\views.py changed, reloading.
+INFO 2026-01-18 11:59:19,777 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:11:00,831 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 10:11:07,275 log Not Found: /favicon.ico
+INFO 2026-01-19 10:16:07,534 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:16:08,417 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:16:09,783 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:16:10,370 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:16:19,631 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:16:20,184 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:16:22,310 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:16:22,918 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:16:24,162 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:16:24,715 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:36:57,405 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:36:59,048 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:37:10,423 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:37:11,216 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:37:12,493 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:37:13,141 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:37:16,423 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:37:17,129 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:37:19,369 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:37:20,149 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:37:21,390 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:37:21,961 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:14,778 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:15,387 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:16,643 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:17,311 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:26,616 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:27,250 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:28,546 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:29,168 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:31,411 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:31,984 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:33,245 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:33,831 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:35,104 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:35,767 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:38:36,988 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 10:38:37,532 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:40:16,846 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:40:17,489 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:40:19,770 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:40:20,473 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:40:21,710 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:40:22,254 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 10:40:45,262 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:40:49,931 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 10:41:12,087 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:12,790 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:15,080 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:15,828 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:17,061 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:17,699 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:21,005 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:21,697 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:23,050 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:23,767 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:28,036 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:28,720 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:32,026 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:32,564 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:36,822 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:37,496 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:38,735 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:39,370 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:50,714 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:51,473 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:53,620 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:54,228 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:55,446 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:56,094 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:41:57,335 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:41:57,994 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:42:06,346 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:42:07,225 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:42:08,530 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:42:09,324 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 10:42:10,581 autoreload D:\project\articles\forms.py changed, reloading.
+INFO 2026-01-19 10:42:11,237 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 10:42:14,310 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:42:35,941 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:42:38,224 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:43:59,524 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:45:10,390 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:54:55,332 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:55:53,895 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:55:57,964 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:56:00,110 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:56:03,091 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:56:05,027 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:56:08,897 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:56:44,256 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 10:58:41,713 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 11:04:58,992 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:05:14,588 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 11:05:15,398 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:05:16,666 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 11:05:17,451 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:05:18,772 autoreload D:\project\cms\settings.py changed, reloading.
+INFO 2026-01-19 11:05:19,552 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:05:50,332 autoreload D:\project\cms\urls.py changed, reloading.
+INFO 2026-01-19 11:05:51,190 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:05:53,584 autoreload D:\project\cms\urls.py changed, reloading.
+INFO 2026-01-19 11:05:54,371 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:05:55,745 autoreload D:\project\cms\urls.py changed, reloading.
+INFO 2026-01-19 11:05:56,575 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:06:47,528 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:08,542 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 11:07:09,315 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:10,641 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 11:07:11,388 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:13,775 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 11:07:14,563 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:17,902 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 11:07:18,830 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:22,285 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 11:07:23,188 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:25,586 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 11:07:26,405 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:31,767 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:07:32,518 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:07:54,041 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:07:54,824 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:08:13,296 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:08:14,124 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:08:33,772 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:08:34,561 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:08:35,863 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:08:36,775 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:08:42,166 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:08:43,081 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:08:44,401 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:08:45,073 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:09:09,805 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:09:10,631 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:12:11,626 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:12:12,572 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:12:28,228 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:12:29,119 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:12:32,325 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:12:33,112 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:12:36,426 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:12:37,149 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:12:43,414 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:12:44,149 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:11,065 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:11,774 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:13,211 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:14,418 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:15,778 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:16,637 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:20,093 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:20,985 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:22,368 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:23,133 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:24,482 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:25,336 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:26,667 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:27,420 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:30,811 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:31,726 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:33,104 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:33,951 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:35,280 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:36,052 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:37,383 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:38,207 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:46,733 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:47,708 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:54,214 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:55,119 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:13:56,454 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:13:57,354 autoreload Watching for file changes with StatReloader
+ERROR 2026-01-19 11:41:16,156 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 7, in blog_list
+    return render(request, 'blog/list.html' ,{'list':list})
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\project\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\project\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_order' not found. 'update_order' is not a valid view function or pattern name.
+ERROR 2026-01-19 11:41:33,972 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 7, in blog_list
+    return render(request, 'blog/list.html' ,{'list':list})
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\project\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\project\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_order' not found. 'update_order' is not a valid view function or pattern name.
+INFO 2026-01-19 11:41:57,238 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 11:41:59,927 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:42:03,449 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 11:42:04,580 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:42:07,985 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 11:42:09,237 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:42:10,620 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 11:42:11,481 autoreload Watching for file changes with StatReloader
+ERROR 2026-01-19 11:42:11,803 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 7, in blog_list
+    return render(request, 'blog/list.html' ,{'list':list})
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\project\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\project\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_order' not found. 'update_order' is not a valid view function or pattern name.
+INFO 2026-01-19 11:42:24,148 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 11:42:25,068 autoreload Watching for file changes with StatReloader
+ERROR 2026-01-19 11:42:34,256 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 7, in blog_list
+    return render(request, 'blog/list.html' ,{'list':list})
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\project\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\project\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_order' not found. 'update_order' is not a valid view function or pattern name.
+WARNING 2026-01-19 11:43:07,017 log Not Found: /update_order/
+INFO 2026-01-19 11:43:52,766 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:43:53,573 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:43:56,954 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:43:57,834 autoreload Watching for file changes with StatReloader
+ERROR 2026-01-19 11:43:58,507 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 7, in blog_list
+    return render(request, 'blog/list.html' ,{'list':list})
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\project\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\project\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_order' not found. 'update_order' is not a valid view function or pattern name.
+WARNING 2026-01-19 11:47:46,709 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:47:51,807 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:48:09,031 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:49:09,430 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:49:10,663 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:49:17,783 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:49:18,019 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 11:51:10,264 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 11:53:17,553 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:53:17,679 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:53:40,938 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 11:55:57,274 autoreload D:\project\cms\views.py changed, reloading.
+INFO 2026-01-19 11:55:58,194 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 11:57:02,743 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 11:57:25,004 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:57:25,790 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 11:57:27,121 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 11:57:27,939 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 11:57:31,579 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:57:37,112 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:57:44,994 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:24,294 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:24,645 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:29,488 log Not Found: /article/
+WARNING 2026-01-19 11:58:29,544 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:34,640 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:37,420 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:46,491 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:48,887 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 11:58:50,894 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-19 12:03:11,393 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 12:03:12,412 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 12:03:17,859 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 12:03:18,622 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 12:03:20,827 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 12:03:21,685 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 12:03:25,026 autoreload D:\project\blog\views.py changed, reloading.
+INFO 2026-01-19 12:03:25,804 autoreload Watching for file changes with StatReloader
+INFO 2026-01-19 12:03:42,528 autoreload D:\project\blog\urls.py changed, reloading.
+INFO 2026-01-19 12:03:43,390 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-19 12:04:06,549 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:04:06,656 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:04:20,382 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:04:20,554 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:04:20,699 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:05:23,705 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:05:33,076 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:05:41,196 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:05:49,255 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:30,303 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:37,638 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:39,822 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:41,996 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:45,580 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:48,295 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:50,406 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:53,934 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:07:55,037 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:44:33,054 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:44:38,476 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:44:53,778 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-19 12:45:10,815 log Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project\blog\views.py", line 10, in blog_list
+    return render(request, 'blog/list.html' ,{'list':list})
+  File "D:\project\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\project\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\project\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\project\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\project\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'sort_article' not found. 'sort_article' is not a valid view function or pattern name.
+WARNING 2026-01-19 12:45:10,851 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:45:22,807 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:45:31,754 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:45:43,494 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:47:51,688 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:48:00,951 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:48:10,979 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:48:19,691 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:48:36,174 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:48:49,049 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:48:56,109 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:49:02,721 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:49:12,623 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:49:25,426 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:49:30,816 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:41,122 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:41,364 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:42,902 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:43,926 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:44,392 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:44,797 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:45,255 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:45,792 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:46,201 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:46,722 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:47,218 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:47,689 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:48,185 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:48,714 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-19 12:56:49,340 log Not Found: /.well-known/appspecific/com.chrome.devtools.json

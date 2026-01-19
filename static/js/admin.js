@@ -3,15 +3,15 @@
  */
 const CONFIG = {
     images: {
-        maxSize: 5 * 1024 * 1024, // 5MB
-        allowedTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
-        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp']
+        maxSize: 2 * 1024 * 1024, // 5MB
+        allowedTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp','image/heic'],
+        allowedExtensions: ['jpg', 'jpeg', 'png', 'webp','heic']
     },
     limits: {
         'id_title': 100,
-        'id_meta_title': 100,
+        'id_meta_title': 60,
         'id_meta_description': 160,
-        'id_meta_keywords': 100
+        'id_meta_keywords': 250
     }
 };
 
@@ -133,7 +133,10 @@ function openDeleteModal(modelName, itemNameOrCount, url, isBulk = false) {
     if (isBulk) {
         const selected = Array.from(document.querySelectorAll('.row-checkbox:checked'))
                               .map(cb => cb.value);
-        if (!selected.length) return alert("Select at least one item!");
+        if (!selected.length) {
+            showFlashMessage("Please select at least one item to delete.", "warning");
+            return;
+        }
         
         modalText.innerText = `Are you sure you want to delete ${selected.length} ${modelName}(s)?`;
         
@@ -260,12 +263,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Validations
             if (file.size > CONFIG.images.maxSize) {
-                alert(`File too large! Max size: 5MB. Your file is ${(file.size / (1024 * 1024)).toFixed(1)}MB`);
+                alert(`File too large! Max size: 2MB. Your file is ${(file.size / (1024 * 1024)).toFixed(1)}MB`);
                 this.value = '';
                 return;
             }
             if (!CONFIG.images.allowedTypes.includes(file.type)) {
-                alert('Invalid file type! Allowed: JPG, PNG, GIF, WebP');
+                alert('Invalid file type! Allowed: JPG, PNG, GIF, WebP','heic');
                 this.value = '';
                 return;
             }
@@ -399,7 +402,7 @@ function setFormAction(action) {
     });
 })();
 
-    /* 6. Bulk Selection */
+
     
 
 
@@ -540,6 +543,7 @@ function setFormAction(action) {
 
 
 /* 11. Character Counters */
+
     Object.keys(CONFIG.limits).forEach(fieldId => {
         const inputField = document.getElementById(fieldId);
         if (!inputField) return;
@@ -553,40 +557,60 @@ function setFormAction(action) {
         const counter = document.getElementById(counterId);
         if (!counter) return;
 
-        const maxChars = CONFIG.limits[fieldId];
+        let maxChars = CONFIG.limits[fieldId];
+        let minChars = 0;
+
+        // Meta title rules
+        if (fieldId === 'id_meta_title') {
+            minChars = 20;
+            maxChars = 60;
+        }
 
         function updateCounter() {
-            const currentLength = inputField.value.length;
-            const remaining = maxChars - currentLength;
-            
-            // Hard limit: truncate if exceeded
+            let currentLength = inputField.value.length;
+            let remaining = maxChars - currentLength;
+
+            // Hard max limit
             if (currentLength > maxChars) {
                 inputField.value = inputField.value.substring(0, maxChars);
                 counter.textContent = "Limit reached";
-                counter.style.color = "#dc2626"; // Red color
+                counter.style.color = "#dc2626";
                 counter.style.fontWeight = "bold";
                 return;
             }
-            
-            // Change color and text based on remaining characters
+
+            // Show min message ONLY after typing starts
+            if (
+                fieldId === 'id_meta_title' &&
+                currentLength > 0 &&
+                currentLength < minChars
+            ) {
+                counter.textContent = "More than 20 characters required";
+                counter.style.color = "#dc2626";
+                counter.style.fontWeight = "bold";
+                return;
+            }
+
+            // Normal states
             if (remaining === 0) {
                 counter.textContent = "Limit reached";
-                counter.style.color = "#dc2626"; // Red
-                counter.style.fontWeight = "bold";
+                counter.style.color = "#dc2626";
             } else if (remaining <= 10) {
                 counter.textContent = remaining + " characters remaining";
-                counter.style.color = "#f59e0b"; // Orange/amber warning
-                counter.style.fontWeight = "bold";
+                counter.style.color = "#f59e0b";
             } else {
                 counter.textContent = remaining + " characters remaining";
-                counter.style.color = "#6b7280"; // Default gray
-                counter.style.fontWeight = "normal";
+                counter.style.color = "#000000";
             }
+
+            counter.style.fontWeight = "bold";
         }
-        
+
         updateCounter();
         inputField.addEventListener("input", updateCounter);
     });
+
+
 
     /* 12. URL Parameter Cleanup */
     (function cleanupURL() {

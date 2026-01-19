@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-{# Header row: H2 on left, homepage dropdown next to it, Add Article on far right #}
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+{# ===================== PAGE HEADER ===================== #}
+<header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+
     <div style="display:flex; align-items:center; gap:12px;">
         <h2 style="margin:0;">Articles</h2>
 
+        {# Homepage filter #}
         <form method="get" id="homepage-filter-form" style="margin:0;">
             {% if request.GET.q %}
                 <input type="hidden" name="q" value="{{ request.GET.q }}">
@@ -15,33 +17,39 @@
             {% endif %}
 
             <select name="homepage" style="padding:5px 10px;">
-                <option value="no" {% if request.GET.homepage == 'no' or not request.GET.homepage %}selected{% endif %}>
+                <option value="no"
+                        {% if request.GET.homepage == 'no' or not request.GET.homepage %}selected{% endif %}>
                     Inner Page
                 </option>
-                <option value="yes" {% if request.GET.homepage == 'yes' %}selected{% endif %}>
+                <option value="yes"
+                        {% if request.GET.homepage == 'yes' %}selected{% endif %}>
                     Homepage
                 </option>
             </select>
         </form>
     </div>
 
+    {# Primary action #}
+    <a href="{% url 'article_create' %}?from_homepage={% if request.GET.homepage == 'yes' %}yes{% else %}no{% endif %}"
+       class="btn">
+        + Add Article
+    </a>
+
+</header>
 
 
-<a href="{% url 'article_create' %}?from_homepage={% if request.GET.homepage == 'yes' %}yes{% else %}no{% endif %}" class="btn">
-    + Add Article
-</a>
-</div>
+{# ===================== TOOLBAR ===================== #}
+<section style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
 
-{# Search on left, Items per page, Status/Delete on right - OUTSIDE the bulk form #}
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+    {# Left tools: search + pagination size #}
     <div style="display:flex; align-items:center; gap:10px;">
-        {# Search #}
-        <input type="text" id="article-search"
-               placeholder="Search entire database live..."
+
+        <input type="text"
+               id="article-search"
+               placeholder="Search"
                value="{{ request.GET.q|default:'' }}"
                style="padding:5px 10px; width:250px;">
 
-        {# Items per page - STANDALONE form #}
         <form method="get" id="per-page-form" style="margin:0;">
             {% if request.GET.q %}
                 <input type="hidden" name="q" value="{{ request.GET.q }}">
@@ -50,36 +58,54 @@
                 <input type="hidden" name="homepage" value="{{ request.GET.homepage }}">
             {% endif %}
 
+            Show
             <select name="per_page" style="padding:5px 10px;">
-                <option value="10" {% if request.GET.per_page == '10' or not request.GET.per_page %}selected{% endif %}>10</option>
+                <option value="10"
+                        {% if request.GET.per_page == '10' or not request.GET.per_page %}selected{% endif %}>
+                    10
+                </option>
                 <option value="20" {% if request.GET.per_page == '20' %}selected{% endif %}>20</option>
                 <option value="50" {% if request.GET.per_page == '50' %}selected{% endif %}>50</option>
                 <option value="all" {% if request.GET.per_page == 'all' %}selected{% endif %}>ALL</option>
             </select>
+            Items
         </form>
     </div>
 
-    {# Bulk actions #}
-    <div style="display:flex; gap:8px;">
-        <button type="button" class="btn btn-cancel" onclick="document.getElementById('bulk-form').querySelector('button[name=action][value=toggle]').click()">Status</button>
-        <button type="button" class="btn btn-danger"
+    {# Right tools: bulk actions #}
+    <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button"
+                class="btn btn-warning"
+                onclick="document.getElementById('bulk-form').querySelector('button[name=action][value=toggle]').click()">
+            Status
+        </button>
+
+        <button type="button"
+                class="btn btn-danger"
                 onclick="openDeleteModal('article', null, '/bulk/article/', true)">
             Delete
         </button>
     </div>
-</div>
 
-{# Replace the server-rendered table + pagination with an AJAX-replaceable container #}
-<div id="ajax-loader" style="display:none; text-align:center; margin-bottom:8px;">Loading...</div>
-<div id="articles-list-container">
-    {% include 'articles/_list_partial.html' %}
-</div>
+</section>
 
-{# Include AJAX helper for pagination/search (progressive enhancement) #}
+
+{# ===================== CONTENT ===================== #}
+<section>
+
+    <div id="ajax-loader"
+         style="display:none; text-align:center; margin-bottom:8px;">
+    </div>
+
+    <div id="articles-list-container">
+        {% include 'articles/_list_partial.html' %}
+    </div>
+
+</section>
+
+
+{# ===================== SCRIPTS ===================== #}
 {% load static %}
 <script src="{% static 'js/articles-ajax.js' %}"></script>
-
-
-
 
 {% endblock %}

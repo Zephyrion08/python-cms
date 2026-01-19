@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'users',
     'articles',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -165,14 +166,15 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB in bytes
 DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB in bytes
 
 # Custom settings for image validation
-IMAGE_MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
-IMAGE_MAX_DIMENSIONS = (4000, 4000)  # width, height
-IMAGE_ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp']
+IMAGE_MAX_FILE_SIZE = 2 * 1024 * 1024  # 5MB
+IMAGE_MAX_DIMENSIONS = (1920, 1280)  # width, height
+IMAGE_ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp','heic']
 IMAGE_ALLOWED_MIMETYPES = [
     'image/jpeg',
     'image/png', 
     'image/gif',
-    'image/webp'
+    'image/webp',
+    'image/heic'
 ]
 
 
@@ -193,7 +195,7 @@ MESSAGE_TAGS = {
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Full',
+        'toolbar': 'full',
         'height': 400,
         'width': '100%',
         'allowedContent': True,  # allow all HTML tags/attributes

@@ -4,7 +4,11 @@
 
 <h2>
     {% if is_edit %}
-        Edit
+        {% if force_homepage %}
+            Edit Homepage Article
+        {% else %}
+            Edit Inner Page Article
+        {% endif %}
     {% else %}
         {% if force_homepage %}
             Create Homepage Article
@@ -13,6 +17,7 @@
         {% endif %}
     {% endif %}
 </h2>
+
 
 <a href="{% url 'article_list' %}{% if is_edit %}{% if article.show_on_homepage %}?homepage=yes{% else %}?homepage=no{% endif %}{% else %}{% if force_homepage %}?homepage=yes{% else %}?homepage=no{% endif %}{% endif %}" class="btn">← Back to Article</a>
 
@@ -55,7 +60,7 @@
           {{ form.slug.label }} <span style="color: red;">*</span>
       </label>
       {{ form.slug }}
-      <small class="help-text">{{ form.slug.help_text }}</small>
+
       <small id="slug-message" class="help-text"></small>
       {% if form.slug.errors %}
           <div class="error">{{ form.slug.errors }}</div>
@@ -78,7 +83,7 @@
             {% endif %}
         </div>
         <small class="help-text">
-            Allowed formats: JPG, PNG, WebP | Max size: 5MB | Max dimensions: 1920x1280px
+            Allowed formats: JPG, PNG, WebP | Max size: 2MB | Max dimensions: 1920x1280px
         </small>
 
         <div id="imagePreview" class="mt-2">
@@ -112,7 +117,7 @@
 
     <div class="meta-collapsible-wrapper" style="margin-top: 20px; border: 1px solid #ddd; border-radius: 4px;">
         <button type="button" id="toggleMeta" class="btn-secondary" style="width: 100%; text-align: left; padding: 10px; background: #f8f9fa; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-weight: bold;">SEO / Meta Information (Optional)</span>
+            <span style="font-weight: bold;">Meta Tags</span>
             <span id="metaStatusIcon">▼</span>
         </button>
 
@@ -124,7 +129,7 @@
                 </label>
                 {{ form.meta_title }}
                 <small class="help-text">
-                    <strong><span id="meta-title-counter">100 characters remaining</span></strong>
+                    <strong><span id="meta-title-counter">60 characters remaining</span></strong>
                 </small>
                 {% if form.meta_title.errors %}
                     <div class="error">{{ form.meta_title.errors }}</div>
@@ -150,7 +155,7 @@
                 </label>
                 {{ form.meta_keywords }}
                 <small class="help-text">
-                    <strong><span id="meta-keywords-counter">100 characters remaining</span></strong>
+                    <strong><span id="meta-keywords-counter">250 characters remaining</span></strong>
                 </small>
                 {% if form.meta_keywords.errors %}
                     <div class="error">{{ form.meta_keywords.errors }}</div>
@@ -167,7 +172,7 @@
           Save
       </button>
       <button type="submit" class="btn" onclick="setFormAction('save_and_new')" style="background: #10b981;">
-          Save & Add Another
+          Save & More
       </button>
       <button type="submit" class="btn" onclick="setFormAction('save_and_quit')" style="background: #3b82f6;">
           Save & Quit

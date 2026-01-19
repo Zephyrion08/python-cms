@@ -14,7 +14,7 @@ class ArticleForm(forms.ModelForm):
     slug = forms.CharField(
         required=False,
         help_text="URL-friendly version of the title. Edit if needed.",
-        widget=forms.TextInput(attrs={"placeholder": "Auto-generated from title"})
+        widget=forms.TextInput(attrs={"placeholder": "Slug"})
     )
 
     class Meta:
@@ -25,9 +25,15 @@ class ArticleForm(forms.ModelForm):
         ] 
         widgets = {
             'image': forms.FileInput(),
-            'meta_description': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Write SEO summary...'}),
-            'meta_title': forms.TextInput(attrs={'placeholder': 'SEO Title...'}),
-            'meta_keywords': forms.TextInput(attrs={'placeholder': 'tag1, tag2...'}),
+            'meta_description': forms.Textarea(attrs={
+                'rows': 3,
+                'cols': 55,
+                'placeholder': 'Meta Descriptions'
+            }),
+            'meta_title': forms.TextInput(attrs={'placeholder': 'Meta Title'}),
+            'meta_keywords': forms.TextInput(attrs={'placeholder': 'Meta Keywords'}),
+            'title': forms.TextInput(attrs={'placeholder': 'Title'}),
+            'subtitle': forms.TextInput(attrs={'placeholder': 'Sub Title'}),
         }
 
     def clean_image(self):
@@ -48,11 +54,11 @@ class ArticleForm(forms.ModelForm):
             return image
         
         # Get validation settings
-        max_size = getattr(settings, 'IMAGE_MAX_FILE_SIZE', 5 * 1024 * 1024)
-        allowed_extensions = getattr(settings, 'IMAGE_ALLOWED_EXTENSIONS', ['jpg', 'jpeg', 'png', 'gif', 'webp'])
-        max_dimensions = getattr(settings, 'IMAGE_MAX_DIMENSIONS', (4000, 4000))
+        max_size = getattr(settings, 'IMAGE_MAX_FILE_SIZE', 2 * 1024 * 1024)
+        allowed_extensions = getattr(settings, 'IMAGE_ALLOWED_EXTENSIONS', ['jpg', 'jpeg', 'png', 'gif', 'webp','heic'])
+        max_dimensions = getattr(settings, 'IMAGE_MAX_DIMENSIONS', (1920, 1280))
         allowed_mimetypes = getattr(settings, 'IMAGE_ALLOWED_MIMETYPES', [
-            'image/jpeg', 'image/png', 'image/gif', 'image/webp'
+            'image/jpeg', 'image/png', 'image/gif', 'image/webp','image/heic'
         ])
         
         # 1. File size check
@@ -101,7 +107,7 @@ class ArticleForm(forms.ModelForm):
         if hasattr(image, 'content_type'):
             if image.content_type not in allowed_mimetypes:
                 raise ValidationError(
-                    f"Invalid image format '{image.content_type}'. Allowed: JPEG, PNG, GIF, WebP"
+                    f"Invalid image format '{image.content_type}'. Allowed: JPEG, PNG, GIF, WebP , HEIC"
                 )
         
         return image
@@ -155,3 +161,13 @@ class ArticleForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+    
+    def clean_meta_title(self):
+        meta_title = self.cleaned_data.get("meta_title", "").strip()
+
+        if meta_title and len(meta_title) < 20:
+            raise ValidationError(
+                "Meta title must be at least 20 characters long."
+            )
+
+        return meta_title

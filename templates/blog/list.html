@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<style>
+    /* The specific drag handle style */
+    .drag-handle { 
+        cursor: grab; /* Shows the open hand icon */
+        color: #999;
+        font-size: 18px;
+        text-align: center;
+        width: 40px;
+        transition: color 0.2s;
+    }
+    
+    .drag-handle:hover { color: #333; }
+    .drag-handle:active { cursor: grabbing; } /* Shows closed hand icon while dragging */
+
+    /* Ghosting effect (the row left behind) */
+    .sortable-ghost {
+        opacity: 0.3;
+        background-color: #f0f0f0 !important;
+    }
+
+    /* Success message badge */
+    .success-badge { 
+        display: none; position: fixed; top: 20px; right: 20px; 
+        background: #28a745; color: white; padding: 12px 24px; 
+        border-radius: 4px; z-index: 9999; font-weight: bold;
+    }
+</style>
+
+<div id="saveMsg" class="success-badge">Order Saved!</div>
+
+<table id="listTable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>ID</th> <th style="width: 50px;">Order</th> <th>Title</th>
+            <th>Status</th>
+            <th>Slug</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for b in list %}
+        <tr data-id="{{ b.id }}">
+            <td>{{ b.position }}</td>
+            <td class="drag-handle">☰</td> <td>{{ b.title }}</td>
+            <td>{{ b.is_active|yesno:"Active,Inactive" }}</td>
+            <td>{{ b.slug }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+$(document).ready(function() {
+    // 1. Get CSRF Token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+
+    // 2. Initialize DataTable
+    // We disable pagination and ordering so SortableJS has full control
+    const table = $('#listTable').DataTable({
+        paging: true,
+        ordering: false,
+        pageLength: 10,
+        columnDefs: [
+            { targets: 0, visible: false } // Hide the ID/Position column
+        ]
+    });
+
+    // 3. Initialize SortableJS on the tbody
+    const el = document.querySelector('#listTable tbody');
+    Sortable.create(el, {
+        handle: '.drag-handle', // <--- This restricts drag to the handle
+        animation: 200,         // Smooth sliding animation (ms)
+        ghostClass: 'sortable-ghost',
+        onEnd: function () {
+            let newOrder = [];
+            
+            // Loop through all rows in current DOM order to get their data-ids
+            $('#listTable tbody tr').each(function() {
+                const id = $(this).data('id');
+                if(id) newOrder.push(id);
+            });
+
+            // 4. Send the new ID list to the server
+            $.ajax({
+                url: "{% url 'sort' 'article' %}",
+                method: "POST",
+                headers: { "X-CSRFToken": csrftoken },
+                contentType: "application/json",
+                data: JSON.stringify({ order: newOrder }),
+                success: function() {
+                    $('#saveMsg').fadeIn().delay(800).fadeOut();
+                },
+                error: function() {
+                    alert('Save failed. Please refresh and try again.');
+                }
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

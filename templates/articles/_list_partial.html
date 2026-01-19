@@ -57,25 +57,24 @@
 </form>
 
 {# Pagination outside the form - ALWAYS SHOW #}
-{% if page_obj and page_obj.paginator.num_pages > 1 %}
-    {% with request.GET.urlencode as query_params %}
-    <div id="pagination-wrapper" class="pagination" style="margin-top: 20px; display: flex; justify-content: center; align-items: center; gap: 8px;">
-        {% if page_obj.has_previous %}
-            <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.previous_page_number }}" class="btn ajax-page">Prev</a>
-        {% endif %}
+{% if page_obj %}
+<div class="pagination" style="margin-top:20px; display:flex; justify-content:center; gap:8px;">
 
-        <span style="color: #6b7280;">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-            <small>({{ page_obj.paginator.count }} total)</small>
-        </span>
+    {% if page_obj.has_previous %}
+        <a href="?{{ query_params }}&page={{ page_obj.previous_page_number }}"
+           class="btn ajax-page">Prev</a>
+    {% endif %}
 
-        {% if page_obj.has_next %}
-            <a href="?{% if query_params %}{{ query_params }}&{% endif %}page={{ page_obj.next_page_number }}" class="btn ajax-page">Next</a>
-        {% endif %}
-    </div>
-    {% endwith %}
-{% elif page_obj %}
-    <div style="margin-top: 20px; text-align: center; color: #6b7280;">
-        <small>{{ page_obj.paginator.count }} result{{ page_obj.paginator.count|pluralize }}</small>
-    </div>
+    <span style="color:#6b7280;">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        <small>({{ page_obj.paginator.count }} total)</small>
+    </span>
+
+    {% if page_obj.has_next %}
+        <a href="?{{ query_params }}&page={{ page_obj.next_page_number }}"
+           class="btn ajax-page">Next</a>
+    {% endif %}
+
+</div>
 {% endif %}
+

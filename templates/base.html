@@ -1,97 +1,103 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %}Admin Panel{% endblock %}</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+<head>
+  <title>{% block title %}Admin Panel{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    
-  </head>
-  <body data-csrf-token="{{ csrf_token }}">
-    <!-- TOP BAR -->
-    <header class="topbar">
-      <div class="topbar-left">
-        <span class="logo">DYNAMIC</span>
-        <i class="fa-solid fa-bars" id="toggleSidebar"></i>
-      </div>
-
-      <div class="topbar-right">
-        <i class="fa-solid fa-user"></i>
-        {{ request.user.username }}
-        <a href="{% url 'logout' %}" class="logout">Logout</a>
-      </div>
-    </header>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
-      <nav>
-        <a href="{% url 'dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
-            <i class="fa-solid fa-gauge"></i>
-            <span>Dashboard</span>
-        </a>
-        <a href="{% url 'user_list' %}" class="{% if 'user' in request.resolver_match.url_name %}active{% endif %}">
-            <i class="fa-solid fa-user"></i>
-            <span>Users</span>
-        </a>
-        <a href="{% url 'article_list' %}" class="{% if 'article' in request.resolver_match.url_name %}active{% endif %}">
-            <i class="fa-solid fa-newspaper"></i>
-            <span>Articles</span>
-        </a>
-      </nav>
-    </aside>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="askjdajk">
 
 
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+</head>
 
-    <!-- MAIN CONTENT -->
-    <main class="main" id="main">
-        <div class="messages-container" id="messages-container">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="message {{ message.tags }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-        {% if form and form.non_field_errors %}
-        <div class="messages">
-          {% for error in form.non_field_errors %}
-            <div class="message error">
-              {{ error }}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      {% block content %}
-      {% endblock %}</main>
-    <div id="deleteModal" class="modal">
-      <div class="modal-content">
-          <h3>Confirm Deletion</h3>
-          <p id="modal-text">Are you sure you want to delete this item?</p>
-          <div class="modal-actions">
-              <form id="deleteForm" method="post">
-                  {% csrf_token %}
-                  <button type="submit" class="btn btn-danger">Yes, Delete</button>
-              </form>
-              <button onclick="closeDeleteModal()" class="btn btn-cancel">Cancel</button>
-          </div>
-      </div>
+<body data-csrf-token="{{ csrf_token }}">
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="logo">DYNAMIC</span>
+      <i class="fa-solid fa-bars" id="toggleSidebar"></i>
     </div>
 
+    <div class="topbar-right">
+      <i class="fa-solid fa-user"></i>
+      {{ request.user.username }}
+      <a href="{% url 'logout' %}" class="logout">Logout</a>
+    </div>
+  </header>
 
-    
-    <script src="{% static 'js/admin.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <a href="{% url 'dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+        <i class="fa-solid fa-gauge"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="{% url 'user_list' %}" class="{% if 'user' in request.resolver_match.url_name %}active{% endif %}">
+        <i class="fa-solid fa-user"></i>
+        <span>Users</span>
+      </a>
+      <a href="{% url 'article_list' %}" class="{% if 'article' in request.resolver_match.url_name %}active{% endif %}">
+        <i class="fa-solid fa-newspaper"></i>
+        <span>Articles</span>
+      </a>
+       <a href="{% url 'blog_list' %}" class="{% if 'blog' in request.resolver_match.url_name %}active{% endif %}">
+        <i class="fa-solid fa-newspaper"></i>
+        <span>Blog</span>
+      </a>
+    </nav>
+  </aside>
 
 
-  </body>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main">
+    <div class="messages-container" id="messages-container">
+      {% if messages %}
+      {% for message in messages %}
+      <div class="message {{ message.tags }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+    {% if form and form.non_field_errors %}
+    <div class="messages">
+      {% for error in form.non_field_errors %}
+      <div class="message error">
+        {{ error }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+  </main>
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <h3>Confirm Deletion</h3>
+      <p id="modal-text">Are you sure you want to delete this item?</p>
+      <div class="modal-actions">
+        <form id="deleteForm" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        </form>
+        <button onclick="closeDeleteModal()" class="btn btn-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="{% static 'js/admin.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+
+</body>
+
 </html>

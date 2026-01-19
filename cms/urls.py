@@ -25,6 +25,9 @@ urlpatterns = [
     path('', dashboard, name='dashboard'),
     path('users/', include('users.urls')),
     path('articles/', include('articles.urls')),
+    path('blog/', include('blog.urls')),
+
+
     path('ckeditor/', include('ckeditor_uploader.urls')), 
 
 
