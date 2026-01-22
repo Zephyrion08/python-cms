@@ -27,6 +27,14 @@ $(document).ready(function() {
         ]
     });
 
+    $('#listTable_filter input').off().on('keyup', function() {
+        // Filter only the Title column (index 3)
+        table
+            .column(3)
+            .search(this.value)
+            .draw();
+    });
+
 
 
     // 3. Initialize SortableJS on the tbody

@@ -4,6 +4,8 @@
 <form method="post" action="{% url 'bulk_action' 'article' %}" id="bulk-form">
     {% csrf_token %}
 
+    <input type="hidden" name="action" id="bulk-action">
+    
     <table class="log-table">
         <thead>
             <tr>

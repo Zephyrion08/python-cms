@@ -25,6 +25,10 @@ MODEL_MAP = {
     "user": User,
     "blog": Blog,
 }
+ACTIVE_FIELD_MAP = {
+    "article": "is_active",
+    "blog": "active",
+}
 
 def redirect_back(request, default='/'):
     """Redirect to previous page or default"""
@@ -64,11 +68,13 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 
+
+
 @ratelimit(key='user', rate='30/m', method='POST')
 @login_required
 @require_POST
 def toggle_status(request, model_name, pk):
-    """Toggle is_active status of an object"""
+    """Toggle active status of an object using ACTIVE_FIELD_MAP"""
     model_class = MODEL_MAP.get(model_name.lower())
     if not model_class:
         return JsonResponse({"error": "Invalid model"}, status=400)
@@ -78,14 +84,21 @@ def toggle_status(request, model_name, pk):
     if not check_user_permission(request, model_class, action="change"):
         return JsonResponse({"error": "Permission denied"}, status=403)
 
-    # Toggle is_active safely
-    obj.is_active = not obj.is_active
-    obj.save(update_fields=['is_active'])
+    # Determine the active field dynamically
+    active_field = ACTIVE_FIELD_MAP.get(model_name.lower())
+    if not active_field:
+        return JsonResponse({"error": "This model does not support status toggling"}, status=400)
+
+    # Toggle the field dynamically
+    current_status = getattr(obj, active_field)
+    setattr(obj, active_field, not current_status)
+    obj.save(update_fields=[active_field])
 
     return JsonResponse({
-        "status": obj.is_active,
+        "status": not current_status,
         "message": f'"{get_obj_name(obj)}" status changed.'
     })
+
 
 
 @ratelimit(key='user', rate='30/m', method='POST')
@@ -137,15 +150,24 @@ def bulk_action(request, model_name):
     queryset = model_class.objects.filter(pk__in=selected_ids)
 
     if action == "toggle":
-        queryset.update(
-            is_active=Case(
-                When(is_active=True, then=Value(False)),
-                When(is_active=False, then=Value(True)),
-                output_field=BooleanField()
-            )
-        )
-        messages.success(request, f"{queryset.count()} {model_name}(s) status toggled.")
+        active_field = ACTIVE_FIELD_MAP.get(model_name.lower())
 
+        if not active_field:
+            messages.error(request, "This model does not support status toggling.")
+            return redirect_back(request)
+
+        queryset.update(**{
+            active_field: Case(
+                When(**{active_field: True}, then=Value(False)),
+                When(**{active_field: False}, then=Value(True)),
+                output_field=BooleanField(),
+            )
+        })
+
+        messages.success(
+            request,
+            f"{queryset.count()} {model_name}(s) status toggled."
+        )
     elif action == "delete":
         count = queryset.count()
         queryset.delete()
